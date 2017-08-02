@@ -59,8 +59,8 @@ void eventHandler() {
 			case SDL_QUIT:
 				quit = true;
 				break;
-			case SDL_AUDIODEVICEADDED:
-				std::cout << "Audit device found" << std::endl;
+			case 0x1100: // SDL_AUDIODEVICEADDED: So this compiles on CentOS 7
+				std::cout << "Audio device found" << std::endl;
 				break;
 			case SDL_TEXTINPUT:
 			case SDL_KEYUP:
