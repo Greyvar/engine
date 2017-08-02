@@ -5,3 +5,5 @@ CMakeCache.txt
 **/*.swo
 Makefile
 cmake_install.cmake
+.buildid
+pkg
