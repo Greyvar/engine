@@ -1,5 +1,4 @@
 cmake_minimum_required(VERSION 2.8)
-cmake_policy(SET CMP0004 OLD)
 project(Boleas)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${Boleas_SOURCE_DIR}/var/cmake-finders/")
@@ -25,7 +24,7 @@ if (WINDOWS)
 	target_link_libraries(boleas mingw32 SDL2main SDL2 m user32 gdi32 winmm)
 	set_target_properties(boleas PROPERTIES LINK_SEARCH_END_STATIC 1)
 else()
-	target_link_libraries(boleas ${SDL2_LIBRARIES} ${SDL2_TTF_LIBRARIES})
+	target_link_libraries(boleas SDL2 SDL2_ttf)
 endif()
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -pedantic -std=c++11")
