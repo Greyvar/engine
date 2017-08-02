@@ -6,6 +6,7 @@ rm -rf pkg
 mkdir -p $DIR
 
 cp bin/boleas $DIR
+cp -r res $DIR
 
 cd pkg
 
