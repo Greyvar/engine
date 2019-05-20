@@ -77,4 +77,5 @@ void renderPanel();
 extern SDL_Color colorHighlight;
 extern SDL_Color colorInactive;
 extern SDL_Color colorText;
+extern SDL_Color colorTextHover;
 extern SDL_Color colorTextSubtle;

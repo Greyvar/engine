@@ -27,7 +27,7 @@ void ScreenServerBrowser::setupComponents() {
 	servers.push_back(new Server("other server", 456));
 	servers.push_back(new Server("asdf", 999));
 
-	auto lbl = new Label("Greyvar >> Servers", 48);
+	auto lbl = new Label("Greyvar > Servers", 48);
 	cons->rowWeight = 0;
 	this->add(lbl, cons);
 

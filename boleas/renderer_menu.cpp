@@ -17,7 +17,7 @@ void renderComponent(GuiComponent* component) {
 }
 
 void renderLabel(Label* lbl) {
-	if (lbl->background) {
+	if (false) {
 		renderTextShadowWithBackground(lbl->getText(), lbl->pos.x, lbl->pos.y, lbl->fontSize, LEFT_MIDDLE, colorText, colorTextSubtle, 0);
 	} else {
 		renderTextShadow(lbl->getText(), lbl->pos.x, lbl->pos.y, lbl->fontSize);
@@ -30,16 +30,19 @@ void renderButton(Button* btn) {
 	renderRect(btn->color, btn->pos.x, btn->pos.y, btn->pos.w, btn->pos.h);
 
 	SDL_Color shadow  = btn->color;
+	SDL_Color txtColor;
 
 	if (btn->hasFocus) {
 		shadow = colorHighlight;
+		txtColor = colorTextHover;
 	} else {
 		shadow.r = shadow.g = shadow.b -= 100;
+		txtColor = colorText;
 	}
 
 	renderRect(shadow, btn->pos.x + borderWidth, btn->pos.y + borderWidth, btn->pos.w - (borderWidth * 2), btn->pos.h - (borderWidth * 2));
 
-	renderText(btn->getText(), btn->pos, colorText, true, 24, LEFT_MIDDLE);
+	renderText(btn->getText(), btn->pos, txtColor, true, 24, LEFT_MIDDLE);
 }
 
 void renderMenu(Menu* menu) {

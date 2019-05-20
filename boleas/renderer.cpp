@@ -13,6 +13,7 @@
 SDL_Color colorHighlight {100, 255, 255, 255};
 SDL_Color colorInactive {100, 100, 100, 255};
 SDL_Color colorText {255, 255, 255, 255};
+SDL_Color colorTextHover {0, 0, 0, 255};
 SDL_Color colorTextSubtle {100, 100, 100, 255};
 
 void renderGridTiles(World* world) {

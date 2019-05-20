@@ -7,7 +7,7 @@ void ScreenAbout::setupComponents() {
 	cons->colWeight = 1;
 	cons->rowWeight = 0;
 
-	auto lbl = new Label("About Greyvar");
+	auto lbl = new Label("Greyvar > About");
 	lbl->fontSize = 48;
 	this->add(lbl, cons);
 
