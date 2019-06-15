@@ -1,4 +1,4 @@
-#include "../screens/Screen.hpp"
+#include "Screen.hpp"
 #include "GridCell.hpp"
 #include "GridLineProperties.hpp"
 

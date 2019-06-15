@@ -14,14 +14,15 @@ find_package(PkgConfig)
 #find_package(SDL2 REQUIRED)
 #find_package(SDL2_ttf REQUIRED)
 
-include_directories(${CMAKE_SOURCE_DIR}/boleas/)
+include_directories(${CMAKE_SOURCE_DIR}/boleas/ include/boleas/)
 
-file(GLOB_RECURSE SOURCE_FILES boleas/*.cpp boleas/*.hpp include/boleas/*.hpp)
+file(GLOB_RECURSE PUBLIC_HEADERS include/boleas/*.hpp)
+file(GLOB_RECURSE SOURCE_FILES boleas/*.cpp boleas/*.hpp)
 add_library(boleas SHARED ${SOURCE_FILES})
 
 set_target_properties(boleas PROPERTIES VERSION ${PROJECT_VERSION})
 set_target_properties(boleas PROPERTIES SOVERSION 1)
-set_target_properties(boleas PROPERTIES PUBLIC_HEADER include/boleas/boleas.hpp)
+set_target_properties(boleas PROPERTIES PUBLIC_HEADER "${PUBLIC_HEADERS}")
 
 include(GNUInstallDirs)
 
@@ -49,7 +50,7 @@ elseif(UNIX)
 		set(PLATFORM_CXX_FLAGS "-s ")
 	endif()
 
-	target_include_directories(boleas PRIVATE /usr/include/freetype2)
+	target_include_directories(boleas PRIVATE /usr/include/freetype2 PUBLIC include)
 
 	target_link_libraries(boleas SDL2 SDL2_image freetype SDL2_net SDL2_mixer)
 endif()

@@ -8,3 +8,4 @@ cmake_install.cmake
 .buildid
 pkg
 *.pc
+install_manifest.txt
