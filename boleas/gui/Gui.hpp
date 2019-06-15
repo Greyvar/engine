@@ -9,17 +9,10 @@
 
 #include "layout/LayoutManager.hpp"
 
-#include "screens/ScreenDashboard.hpp"
-#include "screens/ScreenMainMenu.hpp"
-#include "screens/ScreenServerBrowser.hpp"
-#include "screens/ScreenConsole.hpp"
-#include "screens/ScreenPlayerSetup.hpp"
-#include "screens/ScreenAbout.hpp"
-#include "screens/ScreenSettings.hpp"
-#include "screens/ScreenSplash.hpp"
-
 #include "../Scene.hpp"
 #include "../common.hpp"
+
+#include "Sound.hpp"
 
 using namespace std;
 
@@ -36,16 +29,7 @@ class Gui {
 			return instance;
 		}
 
-		ScreenDashboard* screenDashboard = new ScreenDashboard();
-		ScreenMainMenu* screenMainMenu = new ScreenMainMenu();
-		ScreenConsole* screenConsole = new ScreenConsole();
-		ScreenPlayerSetup* screenPlayerSetup = new ScreenPlayerSetup();
-		ScreenAbout* screenAbout = new ScreenAbout();
-		ScreenServerBrowser* screenServerBrowser = new ScreenServerBrowser();
-		ScreenSettings* screenSettings = new ScreenSettings();
-		ScreenSplash* screenSplash = new ScreenSplash();
-
-		Screen* currentScreen = screenSplash;
+		Screen* currentScreen = nullptr;
 
 		Scene scene = MENU;
 
@@ -84,35 +68,6 @@ class Gui {
 
 			Screen* changedScreen = nullptr;
 
-			if (name == "about") {
-				changedScreen = this->screenAbout;
-			}
-				
-			if (name == "servers") {
-				changedScreen = this->screenServerBrowser;
-			}
-
-			if (name == "settings") {
-				changedScreen = this->screenSettings;
-			}
-
-			if (name == "playerSetup") {
-				changedScreen = this->screenPlayerSetup;
-			}
-
-			if (name == "dashboard") {
-				changedScreen = this->screenDashboard;
-			}
-
-			if (name == "splash") {
-				changedScreen = this->screenSplash;
-			}
-
-			if (changedScreen == nullptr) {
-				// The Chris Houlihan screen. :) 
-				changedScreen = this->screenMainMenu;
-			}
-			
 			this->layoutManager->onChanged(changedScreen);
 			this->layoutManager->doLayout(changedScreen);
 			this->currentScreen = changedScreen;

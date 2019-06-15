@@ -1,7 +1,7 @@
 #include <SDL2/SDL.h>
 
 #include "gui/utils/TextAlignment.hpp"
-#include "gui/layout/ResolvedPanelPosition.hpp"
+#include "ResolvedPanelPosition.hpp"
 #include "Renderer.hpp"
 
 SDL_Texture* CreateTextureFromFT_Bitmap(SDL_Renderer* ren, const FT_Bitmap& bitmap, const SDL_Color& color);

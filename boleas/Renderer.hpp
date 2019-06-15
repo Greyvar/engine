@@ -4,7 +4,7 @@
 #include "ResCache.hpp"
 #include "World.hpp"
 #include "gui/utils/TextAlignment.hpp"
-#include "gui/layout/ResolvedPanelPosition.hpp"
+#include "ResolvedPanelPosition.hpp"
 #include "cvars.hpp"
 
 #define TILE_SIZE 64

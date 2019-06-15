@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../layout/LayoutConstraints.hpp"
-#include "../layout/ResolvedPanelPosition.hpp"
+#include "LayoutConstraints.hpp"
+#include "ResolvedPanelPosition.hpp"
 
 #include <string>
 #include <iostream>

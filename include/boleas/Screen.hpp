@@ -2,8 +2,8 @@
 
 #include <vector>
 
-#include "gui/components/GuiComponent.hpp"
-#include "gui/layout/LayoutConstraints.hpp"
+#include "GuiComponent.hpp"
+#include "LayoutConstraints.hpp"
 
 class Screen {
 	protected:
