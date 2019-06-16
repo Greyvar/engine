@@ -9,3 +9,4 @@ cmake_install.cmake
 pkg
 *.pc
 install_manifest.txt
+compile_commands.json

@@ -14,23 +14,25 @@ find_package(PkgConfig)
 #find_package(SDL2 REQUIRED)
 #find_package(SDL2_ttf REQUIRED)
 
-include_directories(${CMAKE_SOURCE_DIR}/boleas/ include/boleas/)
+include_directories(${CMAKE_SOURCE_DIR}/src/ ${CMAKE_SOURCE_DIR}/pub/)
 
-file(GLOB_RECURSE PUBLIC_HEADERS include/boleas/*.hpp)
-file(GLOB_RECURSE SOURCE_FILES boleas/*.cpp boleas/*.hpp)
+file(GLOB_RECURSE PUBLIC_HEADERS pub/*.hpp)
+file(GLOB_RECURSE SOURCE_FILES src/*.cpp)
 add_library(boleas SHARED ${SOURCE_FILES})
 
 set_target_properties(boleas PROPERTIES VERSION ${PROJECT_VERSION})
 set_target_properties(boleas PROPERTIES SOVERSION 1)
-set_target_properties(boleas PROPERTIES PUBLIC_HEADER "${PUBLIC_HEADERS}")
 
 include(GNUInstallDirs)
 
 install(TARGETS boleas 
 	LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-	PUBLIC_HEADER DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/boleas/"
 	ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
-	)
+)
+
+install(
+	DIRECTORY pub/ DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/boleas"
+)
 
 configure_file(boleas.pc.in boleas.pc @ONLY)
 
