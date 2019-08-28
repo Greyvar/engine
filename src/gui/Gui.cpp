@@ -34,3 +34,4 @@ void Gui::onMouseMoved(const int x, const int y) const {
 		this->currentScreen->onMouseMoved(x, y);
 	}
 }
+

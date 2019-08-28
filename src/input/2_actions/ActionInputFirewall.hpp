@@ -31,11 +31,11 @@ bool canWalk() {
 		return false;
 	}
 
-	if (NetworkManager::get().waitingForMove) {
-		return false;
-	} else {
+//	if (NetworkManager::get().waitingForMove) {
+//		return false;
+//	} else {
 		return true;
-	}
+//	}
 }
 
 system_clock::time_point nextMenuAction = system_clock::now();

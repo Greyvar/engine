@@ -1,7 +1,9 @@
 #pragma once
 
-void boleasSayHello();
+extern void (*boleasHookInput)(void);
 
-void boleasStartEngine();
+void boleasPrintVersion();
+
+void boleasStartEngine(int argc, char* argv[]);
 
 void boleasQuitEngine();

@@ -1,9 +1,7 @@
-#include "NetworkManager.hpp"
 #include "../PlayerInput.hpp"
 #include "common.hpp"
 #include "cvars.hpp"
 #include "GameState.hpp"
-#include "NetworkManager.hpp"
 #include "ActionInputFirewall.hpp"
 #include "gui/Gui.hpp"
 
@@ -26,7 +24,7 @@ void executeSinglePlayerInput(PlayerInput* pi) {
 		switch (pi->actionInput) {
 			case ACTION:
 				if (GameState::get().getRemotePlayerCount() == 0) {
-					NetworkManager::get().sendHelo(pi->localPlayer);
+//					NetworkManager::get().sendHelo(pi->localPlayer);
 				}
 				break;
 			case MENU_DOWN:
@@ -48,19 +46,19 @@ void executeSinglePlayerInput(PlayerInput* pi) {
 				Gui::get().currentScreen->onClick(pi->pointerX, pi->pointerY);
 				break;
 			case WALK_UP:
-				NetworkManager::get().sendMovr(0, -1, pi->localPlayer->username);
+//				NetworkManager::get().sendMovr(0, -1, pi->localPlayer->username);
 				break;
 			case WALK_DOWN:
-				NetworkManager::get().sendMovr(0, 1, pi->localPlayer->username);
+//				NetworkManager::get().sendMovr(0, 1, pi->localPlayer->username);
 				break;
 			case WALK_LEFT:
-				NetworkManager::get().sendMovr(-1, 0, pi->localPlayer->username);
+//				NetworkManager::get().sendMovr(-1, 0, pi->localPlayer->username);
 				break;
 			case WALK_RIGHT:
-				NetworkManager::get().sendMovr(1, 0, pi->localPlayer->username);
+//				NetworkManager::get().sendMovr(1, 0, pi->localPlayer->username);
 				break;
 			case JOIN_GAME:
-				NetworkManager::get().sendHelo(pi->localPlayer);
+//				NetworkManager::get().sendHelo(pi->localPlayer);
 				break;
 			case QUIT:
 				SDL_Event e;

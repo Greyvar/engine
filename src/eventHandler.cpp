@@ -1,10 +1,10 @@
+#include "boleas.hpp"
 #include "util.hpp"                                                           
 #include "Renderer.hpp"                                                         
 #include "GameState.hpp"                                                        
 #include "gui/Gui.hpp"                                                          
 #include "Startup.hpp"                                                          
 #include "YamlNode.hpp"                                                         
-#include "NetworkManager.hpp"                                                   
 #include "cvars.hpp"                                                            
 #include "input/0_hid/common.hpp"                                               
 #include "input/1_bindings/common.hpp"                                          
@@ -93,8 +93,6 @@ void eventHandler() {
 
 
 void mainLoopRecvInput() {
-    NetworkManager::get().recvAll();
-
     resetKeyboard();
 
     eventHandler();
@@ -104,7 +102,8 @@ void mainLoopRecvInput() {
 }
 
 void mainLoopProcess() {
-    NetworkManager::get().handlePacketQueue();
+    //NetworkManager::get().handlePacketQueue();
+	boleasHookInput();
 
     lookupActionBindingForPlayerInput();
     executeActionInputs();

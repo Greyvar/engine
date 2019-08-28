@@ -2,12 +2,13 @@
 #include "Startup.hpp"
 #include "cvars.hpp"
 #include "input/1_bindings/common.hpp"
-#include "NetworkManager.hpp"
 #include "gui/Gui.hpp"
 #include "Renderer.hpp"
 
 #include <SDL2/SDL.h>
 #include <ctime>
+
+void (*boleasHookInput)(void) = NULL;
 
 void initLibraries() {                                                          
     srand(time(nullptr));                                                       
@@ -23,7 +24,7 @@ void initLibraries() {
                                                                                 
 void processInitialCvars() {                                                    
     if (cvarIsset("server")) {                                                  
-        NetworkManager::get().connectToServer(cvarGet("server"));               
+//        NetworkManager::get().connectToServer(cvarGet("server"));               
     }                                                                           
                                                                                 
     if (cvarIsset("startupScreen")) {                                           
@@ -39,11 +40,11 @@ void quitLibraries() {
 	quitSound();
 }
 
-void boleasStartEngine() {
+void boleasStartEngine(int argc, char* argv[]) {
     cvarInit();                                                                    
     loadHomedirConfigurationFiles();                                               
                                                                                    
-//    parseArguments(argc, argv);
+    parseArguments(argc, argv);
                                                                                    
     initLibraries();                                                               
                                                                                    
@@ -63,6 +64,6 @@ void boleasStartEngine() {
 }
 
 
-void boleasSayHello() {
-	cout << "Hello from Boleas " << PROJECT_VERISON << "!" << endl;
+void boleasPrintVersion() {
+	cout << "Boleas Version " << PROJECT_VERSION << "!" << endl;
 }

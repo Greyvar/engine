@@ -128,7 +128,9 @@ void LayoutManager::doLayout(Screen* screen) {
 		int weightedComponentsWidth = 0;
 		int sparePixelWidth = getSparePixels(screen, this->colProperties, Renderer::get().window_w - (this->windowPadding * 2), weightedComponentsWidth);
 
-		cout << "spw" << sparePixelWidth << endl;
+		if (cvarGetb("debug_layout_manager")) {
+			cout << "layoutManager: spare pixel width" << sparePixelWidth << endl;
+		}
 
 		for (auto& col : this->colProperties) {
 			const int componentWidth = getBiggestComponentInLine(screen, col.first, false);
@@ -156,7 +158,9 @@ void LayoutManager::applyLayoutToComponents(Screen* screen) {
 	}
 		
 	for (const auto& comp : screen->components) {
-		cout << "Applying layout to " << comp->toString() << " which is in col " << comp->layoutConstraints.col << " and row " << comp->layoutConstraints.row << " " << endl;
+		if (cvarGetb("debug_layout_manager")) {
+			cout << "Applying layout to " << comp->toString() << " which is in col " << comp->layoutConstraints.col << " and row " << comp->layoutConstraints.row << " " << endl;
+		}
 
 		auto col = this->colProperties.at(comp->layoutConstraints.col);
 		auto row = this->rowProperties.at(comp->layoutConstraints.row);
