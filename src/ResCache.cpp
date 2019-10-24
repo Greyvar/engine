@@ -24,7 +24,7 @@ void replaceColors(SDL_Surface* img, uint32_t primaryColor) {
 	}
 
 	SDL_UnlockSurface(img);
-}
+} 
 
 SDL_Texture* ResCache::loadTexture(const string& filename) {
 	return this->loadTexture(filename, 0);
@@ -75,19 +75,19 @@ SDL_Texture* ResCache::loadTile(const string& filename) {
 	return this->loadTexture(string("tiles/" + filename));
 }
 
-FT_Face* ResCache::loadFont(const string& filename, int size) {
+FT_Face* ResCache::loadFont(const string& filename, uint16_t size) {
 	const string tag = filename + ":" + std::to_string(size);
 
 	if (this->fontCache.count(tag) == 0) {
 		this->fontCache[tag] = new FT_Face;
 
-		cout << "Loading font " << tag << endl;
+		cout << "Loading font with freetype " << tag << endl;
 
 		auto loadFontResult = FT_New_Face(*Renderer::get().freetypeLib, string("res/ttf/").append(filename).c_str(), 0, this->fontCache[tag]);
 
-		cout << "Load font result: " << loadFontResult << endl;
+		cout << "Load font freetype result: " << std::hex << loadFontResult << endl;
 
-		FT_Set_Pixel_Sizes(*this->fontCache[tag], 0, size);
+		FT_Set_Pixel_Sizes(*this->fontCache[tag], size, size);
 		FT_Select_Charmap(*this->fontCache[tag], FT_ENCODING_UNICODE);
 
 		if (this->fontCache[tag] == nullptr) {

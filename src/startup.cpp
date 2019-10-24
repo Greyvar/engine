@@ -9,6 +9,7 @@
 #include <ctime>
 
 void (*boleasHookInput)(void) = NULL;
+void (*boleasHookWindowReady)(void) = NULL;
 
 void initLibraries() {                                                          
     srand(time(nullptr));                                                       
@@ -22,11 +23,7 @@ void initLibraries() {
     defaultInputBindings();                                                     
 }                                                                               
                                                                                 
-void processInitialCvars() {                                                    
-    if (cvarIsset("server")) {                                                  
-//        NetworkManager::get().connectToServer(cvarGet("server"));               
-    }                                                                           
-                                                                                
+void processInitialCvars() {                                                                                                                                   
     if (cvarIsset("startupScreen")) {                                           
         Gui::get().setScreen(cvarGet("startupScreen"));                         
     }                                                                           
@@ -52,7 +49,9 @@ void boleasStartEngine(int argc, char* argv[]) {
                                                                                    
     processInitialCvars();                                                         
                                                                                    
-    Renderer::get().createWindow();                                                
+    Renderer::get().createWindow();                                  
+
+	boleasHookWindowReady();
                                                                                    
     mainLoop();                                                                    
                                                                                    

@@ -3,10 +3,12 @@
 enum ActionInput {
 	AI_NOOP = 0,
 
+	_WALK_START,
 	WALK_LEFT,
 	WALK_RIGHT,
 	WALK_UP,
 	WALK_DOWN,
+	_WALK_END, 
 
 	_MENU_START,
 	MENU_UP,

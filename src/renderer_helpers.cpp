@@ -13,8 +13,6 @@ void renderText(const wstring& text, int x, int y, int w, int h, SDL_Color color
 	const FT_Face face = *Renderer::get().resCache->loadFont("DejaVuSansMono.ttf", size);
 	bool changeColor = false;
 
-	y += (h / 4);
-
 	for (auto currentCharacter : text) {
 		if (changeColor) {
 			if (canChangeColor) {
@@ -42,11 +40,15 @@ void renderText(const wstring& text, int x, int y, int w, int h, SDL_Color color
 
 		FT_Load_Char(face, currentCharacter, FT_LOAD_RENDER);
 
-		SDL_Texture* tex_glyph = CreateTextureFromFT_Bitmap(Renderer::get().sdlRen, face->glyph->bitmap, color);
-
 		SDL_Rect dest{};
 		dest.x = x + (face->glyph->metrics.horiBearingX >> 6);
 		dest.y = y - ((face->glyph->metrics.horiBearingY >> 6) - size);
+
+		if (dest.x > x + w || dest.y > y + h) {
+			return;
+		}
+
+		SDL_Texture* tex_glyph = CreateTextureFromFT_Bitmap(Renderer::get().sdlRen, face->glyph->bitmap, color);
 
 		SDL_QueryTexture(tex_glyph, nullptr, nullptr, &dest.w, &dest.h);
 
@@ -59,7 +61,7 @@ void renderText(const wstring& text, int x, int y, int w, int h, SDL_Color color
 }
 
 void renderText(const wstring& text, int x, int y, SDL_Color color, bool canChangeColor, int size, TextAlignment align) {
-	renderText(text, x, y, 100, 100, color, true, size, align);
+	renderText(text, x, y, 100, 100, color, canChangeColor, size, align);
 }
 
 void renderText(const wstring& text, ResolvedPanelPosition& pos, SDL_Color color, bool canChangeColor, int size, TextAlignment align) {
@@ -93,13 +95,8 @@ void renderTextShadow(const wstring& text, int x, int y, int w, int h, int size,
 	renderText(text, x, y, w, h, color, true, size, alignment);
 }
 
-void renderTextShadow(const wstring& text, int x, int y, int size, TextAlignment alignment, SDL_Color color) {
-	renderTextShadow(text, x, y, 100, 100, size, alignment, color);
-}
-
 void renderTextShadow(const wstring& text, int x, int y, int size) {
-	SDL_Color color = {255, 255, 255, 255};
-	renderTextShadow(text, x, y, 100, 100, size, LEFT_MIDDLE, color);
+	renderTextShadow(text, x, y, 999, 999, size, LEFT_MIDDLE, textColor); 
 }
 
 void renderTextShadow(const wstring& text, ResolvedPanelPosition& pos, TextAlignment alignment, int size, SDL_Color color) {
@@ -115,9 +112,12 @@ void renderTextShadow(const wstring& text, ResolvedPanelPosition& pos, TextAlign
 void renderTextShadowWithBackground(const wstring& text, int x, int y, int size, TextAlignment alignment, SDL_Color bgColor, SDL_Color textColor, int offsetX) {
 	int pad = 5;
 
+	bgColor.r = 255;
+	bgColor.g = 0;
+	bgColor.b = 0;
 	renderRect(bgColor, x, y, (offsetX * 2) + (text.length() * (size * .75)), size + (pad * 3));
 
-	renderTextShadow(text, x + offsetX + (size / 3), y + (size * .25), size);
+	renderTextShadow(text, x + offsetX + (size / 3), y + (size * .25), size, alignment, textColor);
 }
 
 void renderBackgroundSolidColor(SDL_Color color) {

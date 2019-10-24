@@ -1,5 +1,11 @@
+#include "GameState.hpp" 
+#include "ActionInput.hpp" 
+
 #include <chrono>
 
+#include <iostream> 
+
+using std::cout; 
 using namespace std;
 using namespace std::chrono;
 
@@ -13,9 +19,9 @@ This namespace implements;
 namespace ActionInputFirewall {
 
 ActionInputType getActionInputType(ActionInput ai) {
-	if (ai >= WALK_LEFT && ai <= WALK_DOWN) {
+	if (ai > _WALK_START && ai < _WALK_END) {
 		return WALK;
-	} else if (ai >= _MENU_START && ai <= _MENU_END) {
+	} else if (ai > _MENU_START && ai < _MENU_END) {
 		return USE_MENU;
 	} else if (ai == POINT) {
 		return OTHER;

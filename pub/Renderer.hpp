@@ -65,7 +65,6 @@ void renderRect(SDL_Color color, int x, int y, int w, int h);
 void renderText(const wstring& text, int x, int y, SDL_Color color, bool canChangeColor, int size, TextAlignment align);
 void renderText(const wstring& text, ResolvedPanelPosition& pos, SDL_Color color, bool canChangeColor, int size, TextAlignment alignment);
 void renderTextShadow(const wstring& text, int x, int y, int size);
-void renderTextShadow(const wstring& text, int x, int y, int size, TextAlignment alignment, SDL_Color color);
 void renderTextShadow(const wstring& text, int x, int y, int w, int h, int size, TextAlignment alignment, SDL_Color color);
 void renderTextShadowWithBackground(const wstring& text, int x, int y, int size, TextAlignment alignment, SDL_Color bgColor, SDL_Color textColor, int offsetX);
 void renderBackgroundSolidColor(SDL_Color color);

@@ -102,7 +102,6 @@ void mainLoopRecvInput() {
 }
 
 void mainLoopProcess() {
-    //NetworkManager::get().handlePacketQueue();
 	boleasHookInput();
 
     lookupActionBindingForPlayerInput();

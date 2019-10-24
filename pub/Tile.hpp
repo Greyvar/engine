@@ -9,8 +9,6 @@ class Tile {
 	public:
 		Tile(const string& textureName, bool traversable);
 
-		SDL_Texture* tex; 
-
 		string textureName;
 
 		bool texHFlip = false;

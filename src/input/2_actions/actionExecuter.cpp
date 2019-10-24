@@ -4,6 +4,7 @@
 #include "GameState.hpp"
 #include "ActionInputFirewall.hpp"
 #include "gui/Gui.hpp"
+#include "net/NetClient.hpp"
 
 #include <queue>
 
@@ -24,7 +25,7 @@ void executeSinglePlayerInput(PlayerInput* pi) {
 		switch (pi->actionInput) {
 			case ACTION:
 				if (GameState::get().getRemotePlayerCount() == 0) {
-//					NetworkManager::get().sendHelo(pi->localPlayer);
+					NetClient::get().playerSetup(pi->localPlayer); 
 				}
 				break;
 			case MENU_DOWN:

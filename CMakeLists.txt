@@ -16,8 +16,8 @@ find_package(PkgConfig)
 
 include_directories(${CMAKE_SOURCE_DIR}/src/ ${CMAKE_SOURCE_DIR}/pub/)
 
-file(GLOB_RECURSE PUBLIC_HEADERS pub/*.hpp)
-file(GLOB_RECURSE SOURCE_FILES src/*.cpp)
+file(GLOB_RECURSE PUBLIC_HEADERS pub/*.hpp pub/net/proto/*.h)
+file(GLOB_RECURSE SOURCE_FILES src/*.cpp pub/net/proto/*.cc)
 add_library(boleas SHARED ${SOURCE_FILES})
 
 set_target_properties(boleas PROPERTIES VERSION ${PROJECT_VERSION})
@@ -41,7 +41,7 @@ install(FILES ${CMAKE_BINARY_DIR}/boleas.pc DESTINATION ${CMAKE_INSTALL_DATAROOT
 add_definitions(-DPROJECT_VERSION="${PROJECT_VESION}")
 
 if (WINDOWS)
-	target_link_libraries(boleas mingw32 SDL2main SDL2 m user32 gdi32 winmm)
+	target_link_libraries(boleas mingw32 SDL2main SDL2 m user32 gdi32 winmm)  #  gRPC::grpc++_reflection protobuf::libprotobuf grpc++
 	set_target_properties(boleas PROPERTIES LINK_SEARCH_END_STATIC 1)
 elseif(UNIX)
 	add_definitions(-DPLATFORM_LINUX)
@@ -54,7 +54,7 @@ elseif(UNIX)
 
 	target_include_directories(boleas PRIVATE /usr/include/freetype2 PUBLIC include)
 
-	target_link_libraries(boleas SDL2 SDL2_image freetype SDL2_mixer)
+	target_link_libraries(boleas SDL2 SDL2_image freetype SDL2_mixer grpc++ protobuf)
 endif()
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wshadow-compatible-local -Wextra -pedantic -std=c++11 ${PLATFORM_CXX_FLAGS} ")

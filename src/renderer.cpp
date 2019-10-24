@@ -20,8 +20,13 @@ void renderGridTiles(World* world) {
 	int windowWidth = 2 * floor(Renderer::get().window_w / 2);
 	int windowHeight = 2 * floor(Renderer::get().window_h / 2);
 
-//	int tileRenderLength = std::min(windowWidth, windowHeight) / 16;
-	int tileRenderLength = TILE_SIZE;
+	int tileRenderLength;
+
+	if (cvarGetb("r_scale_grid")) {
+		tileRenderLength = std::min(windowWidth, windowHeight) / 16;
+	} else {
+		 tileRenderLength = TILE_SIZE;
+	}
 
 	int gridTilesWidth = world->tileGrid->w * tileRenderLength;
 	int gridTilesHeight = world->tileGrid->h * tileRenderLength;
@@ -61,6 +66,8 @@ void renderGridEntities(World* world) {
 	int windowWidth = 2 * floor(Renderer::get().window_w / 2);
 	int windowHeight = 2 * floor(Renderer::get().window_h / 2);
 
+
+
 	int tileRenderLength = TILE_SIZE;
 
 	int gridTilesWidth = world->tileGrid->w * tileRenderLength;
@@ -96,8 +103,6 @@ void renderConsole() {
 }
 
 void renderUiMessages() {
-	uint32_t index = 0;
-
 	for (auto it : Gui::get().messages) {
 //		renderTextShadow(to_string(it.second), 50, (Renderer::get().window_h - 100) - (index * 50), 100, 100, 24, LEFT_MIDDLE, colorText);
 //		index++;
