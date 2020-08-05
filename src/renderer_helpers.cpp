@@ -96,7 +96,9 @@ void renderTextShadow(const wstring& text, int x, int y, int w, int h, int size,
 }
 
 void renderTextShadow(const wstring& text, int x, int y, int size) {
-	renderTextShadow(text, x, y, 999, 999, size, LEFT_MIDDLE, textColor); 
+	SDL_Color color = {255, 255, 255, 255};
+
+	renderTextShadow(text, x, y, 999, 999, size, LEFT_MIDDLE, color); 
 }
 
 void renderTextShadow(const wstring& text, ResolvedPanelPosition& pos, TextAlignment alignment, int size, SDL_Color color) {
@@ -117,7 +119,7 @@ void renderTextShadowWithBackground(const wstring& text, int x, int y, int size,
 	bgColor.b = 0;
 	renderRect(bgColor, x, y, (offsetX * 2) + (text.length() * (size * .75)), size + (pad * 3));
 
-	renderTextShadow(text, x + offsetX + (size / 3), y + (size * .25), size, alignment, textColor);
+	renderTextShadow(text, x + offsetX + (size / 3), y + (size * .25), 100, 100, size, alignment, textColor);
 }
 
 void renderBackgroundSolidColor(SDL_Color color) {

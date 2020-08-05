@@ -67,7 +67,7 @@ void renderMenu(Menu* menu) {
 			renderTextShadow(L">", menu->pos.x - 20, menu->pos.y + yOffset + (i * itemHeight), 100, 100, 24, LEFT_MIDDLE, color);
 		}
 
-		renderTextShadow(s2ws(menu->getItemName(i)), menu->pos.x, menu->pos.y + yOffset + (i * itemHeight), 24, LEFT_MIDDLE, color);
+		renderTextShadow(s2ws(menu->getItemName(i)), menu->pos.x, menu->pos.y + yOffset + (i * itemHeight), 100, 100, 24, LEFT_MIDDLE, color);
 	}
 }
 
@@ -86,9 +86,9 @@ void renderTexture(TextureViewer* view) {
 void renderComboSpinner(ComboSpinner* cbo) {
 	SDL_Color color = {255, 255, 255, 255};
 
-	renderTextShadow(s2ws(cbo->getTitle()), cbo->pos.x, cbo->pos.y, 24, LEFT_MIDDLE, color);
+	renderTextShadow(s2ws(cbo->getTitle()), cbo->pos.x, cbo->pos.y, 100, 100, 24, LEFT_MIDDLE, color);
 
-	renderTextShadow(L"<", cbo->pos.x + 280, cbo->pos.y, 24, LEFT_MIDDLE, color);
+	renderTextShadow(L"<", cbo->pos.x + 280, cbo->pos.y, 100, 100, 24, LEFT_MIDDLE, color);
 
 	if (cbo->hasFocus) {
 		renderTextShadowWithBackground(s2ws(cbo->getValue()), cbo->pos.x + 300, cbo->pos.y, 24, LEFT_MIDDLE, colorInactive, colorHighlight, 0);
@@ -96,7 +96,7 @@ void renderComboSpinner(ComboSpinner* cbo) {
 		renderTextShadowWithBackground(s2ws(cbo->getValue()), cbo->pos.x + 300, cbo->pos.y, 24, LEFT_MIDDLE, colorInactive, colorText, 0);
 	}
 
-	renderTextShadow(L">", cbo->pos.x + 600, cbo->pos.y, 24, LEFT_MIDDLE, color);
+	renderTextShadow(L">", cbo->pos.x + 600, cbo->pos.y, 100, 100, 24, LEFT_MIDDLE, color);
 }
 
 void renderSplash() {

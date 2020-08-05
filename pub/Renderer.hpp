@@ -27,6 +27,8 @@ class Renderer {
 			SDL_SetWindowResizable(win, SDL_TRUE);
 			SDL_SetWindowMinimumSize(win, 640, 480);
 
+			SDL_SetWindowIcon(win, this->resCache->loadImageUncached("logo.png", 0));
+
 			Renderer::set(win, SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC));
 		}
 

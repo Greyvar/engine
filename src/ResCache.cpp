@@ -34,29 +34,35 @@ SDL_Texture* ResCache::loadTexture(const string& filename, uint32_t primaryColor
 	string textureNameKey = filename + ":" + to_string(primaryColor);
 
 	if (this->textureCache.count(textureNameKey) == 0) {
-		SDL_Surface *img = IMG_Load(string(string("res/img/textures/") + filename).c_str());
+		auto surf = this->loadImageUncached("textures/" + filename, primaryColor);
 
-		if (img == nullptr) {
-			std::cout << "error" << SDL_GetError() << std::endl;
-		} else {
-			if (cvarGetb("debug_textures")) {
-				std::cout << "texture loaded: " << filename << std::endl;
-			}
-		}
-	
-		if (primaryColor != 0) {
-			cout << "Generating replacement color for tex: " << textureNameKey << endl;
-			replaceColors(img, primaryColor);
-		}
-
-		SDL_Texture *tex = SDL_CreateTextureFromSurface(Renderer::get().sdlRen, img);
+		SDL_Texture *tex = SDL_CreateTextureFromSurface(Renderer::get().sdlRen, surf);
 
 		this->textureCache[textureNameKey] = tex;
 
-		SDL_FreeSurface(img);
+		SDL_FreeSurface(surf);
 	}
 
 	return this->textureCache[textureNameKey];
+}
+
+SDL_Surface* ResCache::loadImageUncached(const string& filename, uint32_t primaryColor) {
+	SDL_Surface *img = IMG_Load(string(string("res/img/") + filename).c_str());
+
+	if (img == nullptr) {
+		std::cout << "error" << SDL_GetError() << std::endl;
+	} else {
+		if (cvarGetb("debug_textures")) {
+			std::cout << "texture loaded: " << filename << std::endl;
+		}
+	}
+
+	if (primaryColor != 0) {
+		cout << "Generating replacement color for tex: " << filename << endl;
+		replaceColors(img, primaryColor);
+	}
+
+	return img;
 }
 
 SDL_Texture* ResCache::loadEntity(const string& filename) {
