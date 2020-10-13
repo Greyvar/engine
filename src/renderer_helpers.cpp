@@ -9,7 +9,15 @@ SDL_Texture* CreateTextureFromFT_Bitmap(SDL_Renderer* ren, const FT_Bitmap& bitm
 using std::string;
 using std::wstring;
 
+struct TextOptions {
+	SDL_Color color = {255, 255, 255, 255};
+	TextAlignment alignment = LEFT_MIDDLE;
+	int size = 24;
+	bool canChangeColor = false;
+};
+
 void renderText(const wstring& text, int x, int y, int w, int h, SDL_Color color, bool canChangeColor, int size, TextAlignment alignment) {
+//void renderText(const wstring& text, TextOptions opts) {
 	const FT_Face face = *Renderer::get().resCache->loadFont("DejaVuSansMono.ttf", size);
 	bool changeColor = false;
 
@@ -96,9 +104,7 @@ void renderTextShadow(const wstring& text, int x, int y, int w, int h, int size,
 }
 
 void renderTextShadow(const wstring& text, int x, int y, int size) {
-	SDL_Color color = {255, 255, 255, 255};
-
-	renderTextShadow(text, x, y, 999, 999, size, LEFT_MIDDLE, color); 
+	renderTextShadow(text, x, y, 999, 999, size, LEFT_MIDDLE, {255, 255, 255, 255}); 
 }
 
 void renderTextShadow(const wstring& text, ResolvedPanelPosition& pos, TextAlignment alignment, int size, SDL_Color color) {
@@ -119,7 +125,11 @@ void renderTextShadowWithBackground(const wstring& text, int x, int y, int size,
 	bgColor.b = 0;
 	renderRect(bgColor, x, y, (offsetX * 2) + (text.length() * (size * .75)), size + (pad * 3));
 
+<<<<<<< HEAD
 	renderTextShadow(text, x + offsetX + (size / 3), y + (size * .25), 100, 100, size, alignment, textColor);
+=======
+	renderTextShadow(text, x + offsetX + (size / 3), y + (size * .25), 999, 999, size, alignment, textColor);
+>>>>>>> a70ae15de4aeb2e8f2ed64fb2d367fefff06dbea
 }
 
 void renderBackgroundSolidColor(SDL_Color color) {
