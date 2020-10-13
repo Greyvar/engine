@@ -44,6 +44,10 @@ void ServerInterface::Stub::experimental_async::Connect(::grpc::ClientContext* c
   return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Connect_, context, request, response, std::move(f));
 }
 
+void ServerInterface::Stub::experimental_async::Connect(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::greyvarproto::ConnectionResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Connect_, context, request, response, std::move(f));
+}
+
 ::grpc::ClientAsyncResponseReader< ::greyvarproto::ConnectionResponse>* ServerInterface::Stub::AsyncConnectRaw(::grpc::ClientContext* context, const ::greyvarproto::ConnectionRequest& request, ::grpc::CompletionQueue* cq) {
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::greyvarproto::ConnectionResponse>::Create(channel_.get(), cq, rpcmethod_Connect_, context, request, true);
 }
@@ -60,6 +64,10 @@ void ServerInterface::Stub::experimental_async::PlayerSetup(::grpc::ClientContex
   return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_PlayerSetup_, context, request, response, std::move(f));
 }
 
+void ServerInterface::Stub::experimental_async::PlayerSetup(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::greyvarproto::NoResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_PlayerSetup_, context, request, response, std::move(f));
+}
+
 ::grpc::ClientAsyncResponseReader< ::greyvarproto::NoResponse>* ServerInterface::Stub::AsyncPlayerSetupRaw(::grpc::ClientContext* context, const ::greyvarproto::NewPlayer& request, ::grpc::CompletionQueue* cq) {
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::greyvarproto::NoResponse>::Create(channel_.get(), cq, rpcmethod_PlayerSetup_, context, request, true);
 }
@@ -73,6 +81,10 @@ void ServerInterface::Stub::experimental_async::PlayerSetup(::grpc::ClientContex
 }
 
 void ServerInterface::Stub::experimental_async::GetServerFrame(::grpc::ClientContext* context, const ::greyvarproto::ClientRequests* request, ::greyvarproto::ServerFrameResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GetServerFrame_, context, request, response, std::move(f));
+}
+
+void ServerInterface::Stub::experimental_async::GetServerFrame(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::greyvarproto::ServerFrameResponse* response, std::function<void(::grpc::Status)> f) {
   return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GetServerFrame_, context, request, response, std::move(f));
 }
 

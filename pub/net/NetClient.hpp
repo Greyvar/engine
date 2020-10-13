@@ -47,14 +47,7 @@ class NetClient {
 			return !this->serverFrameBuffer.empty();
 		}
 
-		void processServerFrames() {
-			while (this->hasFrames()) {
-				auto frame = this->serverFrameBuffer.front();
-				this->serverFrameBuffer.pop();
-
-				processServerFrame(frame);
-			}
-		}
+		void processServerFrames();
 
 		bool isReady() {
 			auto state = this->channel->GetState(false);

@@ -29,7 +29,6 @@ extern PROTOBUF_INTERNAL_EXPORT_protobuf_server_5fto_5fclient_5fmessages_2eproto
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_server_5fto_5fclient_5fmessages_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_PlayerYou;
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_server_5fto_5fclient_5fmessages_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_Tile;
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_server_5fto_5fclient_5fmessages_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_Grid;
-extern PROTOBUF_INTERNAL_EXPORT_protobuf_server_5fto_5fclient_5fmessages_2eproto ::google::protobuf::internal::SCCInfo<3> scc_info_PlayerFrame;
 }  // namespace protobuf_server_5fto_5fclient_5fmessages_2eproto
 namespace greyvarproto {
 class ServerFrameResponseDefaultTypeInternal {
@@ -37,11 +36,6 @@ class ServerFrameResponseDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<ServerFrameResponse>
       _instance;
 } _ServerFrameResponse_default_instance_;
-class PlayerFrameDefaultTypeInternal {
- public:
-  ::google::protobuf::internal::ExplicitlyConstructed<PlayerFrame>
-      _instance;
-} _PlayerFrame_default_instance_;
 class MoveResponseDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<MoveResponse>
@@ -110,31 +104,17 @@ static void InitDefaultsServerFrameResponse() {
   ::greyvarproto::ServerFrameResponse::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<6> scc_info_ServerFrameResponse =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 6, InitDefaultsServerFrameResponse}, {
-      &protobuf_server_5fto_5fclient_5fmessages_2eproto::scc_info_PlayerFrame.base,
+::google::protobuf::internal::SCCInfo<9> scc_info_ServerFrameResponse =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 9, InitDefaultsServerFrameResponse}, {
+      &protobuf_server_5fto_5fclient_5fmessages_2eproto::scc_info_MoveResponse.base,
       &protobuf_server_5fto_5fclient_5fmessages_2eproto::scc_info_EntityMoved.base,
       &protobuf_server_5fto_5fclient_5fmessages_2eproto::scc_info_EntitySpawn.base,
+      &protobuf_server_5fto_5fclient_5fmessages_2eproto::scc_info_PlayerQuit.base,
+      &protobuf_server_5fto_5fclient_5fmessages_2eproto::scc_info_PlayerAlreadyHere.base,
       &protobuf_server_5fto_5fclient_5fmessages_2eproto::scc_info_PlayerJoined.base,
+      &protobuf_server_5fto_5fclient_5fmessages_2eproto::scc_info_PlayerYou.base,
       &protobuf_server_5fto_5fclient_5fmessages_2eproto::scc_info_Tile.base,
       &protobuf_server_5fto_5fclient_5fmessages_2eproto::scc_info_Grid.base,}};
-
-static void InitDefaultsPlayerFrame() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::greyvarproto::_PlayerFrame_default_instance_;
-    new (ptr) ::greyvarproto::PlayerFrame();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::greyvarproto::PlayerFrame::InitAsDefaultInstance();
-}
-
-::google::protobuf::internal::SCCInfo<3> scc_info_PlayerFrame =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 3, InitDefaultsPlayerFrame}, {
-      &protobuf_server_5fto_5fclient_5fmessages_2eproto::scc_info_MoveResponse.base,
-      &protobuf_server_5fto_5fclient_5fmessages_2eproto::scc_info_PlayerQuit.base,
-      &protobuf_server_5fto_5fclient_5fmessages_2eproto::scc_info_PlayerYou.base,}};
 
 static void InitDefaultsMoveResponse() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -274,9 +254,8 @@ static void InitDefaultsConnectionResponse() {
   ::greyvarproto::ConnectionResponse::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<1> scc_info_ConnectionResponse =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsConnectionResponse}, {
-      &protobuf_server_5fto_5fclient_5fmessages_2eproto::scc_info_PlayerAlreadyHere.base,}};
+::google::protobuf::internal::SCCInfo<0> scc_info_ConnectionResponse =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsConnectionResponse}, {}};
 
 static void InitDefaultsNoResponse() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -294,7 +273,6 @@ static void InitDefaultsNoResponse() {
 
 void InitDefaults() {
   ::google::protobuf::internal::InitSCC(&scc_info_ServerFrameResponse.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_PlayerFrame.base);
   ::google::protobuf::internal::InitSCC(&scc_info_MoveResponse.base);
   ::google::protobuf::internal::InitSCC(&scc_info_EntityMoved.base);
   ::google::protobuf::internal::InitSCC(&scc_info_EntitySpawn.base);
@@ -308,7 +286,7 @@ void InitDefaults() {
   ::google::protobuf::internal::InitSCC(&scc_info_NoResponse.base);
 }
 
-::google::protobuf::Metadata file_level_metadata[13];
+::google::protobuf::Metadata file_level_metadata[12];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
@@ -316,26 +294,21 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::greyvarproto::ServerFrameResponse, playerframes_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::greyvarproto::ServerFrameResponse, moveresponse_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::greyvarproto::ServerFrameResponse, entitymoved_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::greyvarproto::ServerFrameResponse, entityspawn_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::greyvarproto::ServerFrameResponse, playerquit_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::greyvarproto::ServerFrameResponse, playeralreadyhere_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::greyvarproto::ServerFrameResponse, playerjoined_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::greyvarproto::ServerFrameResponse, playeryou_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::greyvarproto::ServerFrameResponse, singletilechange_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::greyvarproto::ServerFrameResponse, grid_),
-  ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::greyvarproto::PlayerFrame, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::greyvarproto::PlayerFrame, playerid_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::greyvarproto::PlayerFrame, moveresponse_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::greyvarproto::PlayerFrame, playerquit_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::greyvarproto::PlayerFrame, playeryou_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::greyvarproto::MoveResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::greyvarproto::MoveResponse, playerid_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::greyvarproto::EntityMoved, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -401,7 +374,6 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::greyvarproto::ConnectionResponse, serverversion_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::greyvarproto::ConnectionResponse, playeralreadyhere_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::greyvarproto::NoResponse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -410,23 +382,21 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::greyvarproto::ServerFrameResponse)},
-  { 11, -1, sizeof(::greyvarproto::PlayerFrame)},
-  { 20, -1, sizeof(::greyvarproto::MoveResponse)},
-  { 25, -1, sizeof(::greyvarproto::EntityMoved)},
-  { 31, -1, sizeof(::greyvarproto::EntitySpawn)},
-  { 42, -1, sizeof(::greyvarproto::PlayerQuit)},
-  { 48, -1, sizeof(::greyvarproto::PlayerAlreadyHere)},
-  { 54, -1, sizeof(::greyvarproto::PlayerJoined)},
-  { 60, -1, sizeof(::greyvarproto::PlayerYou)},
-  { 66, -1, sizeof(::greyvarproto::Tile)},
-  { 77, -1, sizeof(::greyvarproto::Grid)},
-  { 84, -1, sizeof(::greyvarproto::ConnectionResponse)},
-  { 91, -1, sizeof(::greyvarproto::NoResponse)},
+  { 14, -1, sizeof(::greyvarproto::MoveResponse)},
+  { 20, -1, sizeof(::greyvarproto::EntityMoved)},
+  { 26, -1, sizeof(::greyvarproto::EntitySpawn)},
+  { 37, -1, sizeof(::greyvarproto::PlayerQuit)},
+  { 43, -1, sizeof(::greyvarproto::PlayerAlreadyHere)},
+  { 49, -1, sizeof(::greyvarproto::PlayerJoined)},
+  { 55, -1, sizeof(::greyvarproto::PlayerYou)},
+  { 61, -1, sizeof(::greyvarproto::Tile)},
+  { 72, -1, sizeof(::greyvarproto::Grid)},
+  { 79, -1, sizeof(::greyvarproto::ConnectionResponse)},
+  { 85, -1, sizeof(::greyvarproto::NoResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::greyvarproto::_ServerFrameResponse_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::greyvarproto::_PlayerFrame_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::greyvarproto::_MoveResponse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::greyvarproto::_EntityMoved_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::greyvarproto::_EntitySpawn_default_instance_),
@@ -455,42 +425,41 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 13);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 12);
 }
 
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n\037server_to_client_messages.proto\022\014greyv"
-      "arproto\"\250\002\n\023ServerFrameResponse\022/\n\014playe"
-      "rFrames\030\001 \003(\0132\031.greyvarproto.PlayerFrame"
-      "\022.\n\013entityMoved\030\002 \001(\0132\031.greyvarproto.Ent"
-      "ityMoved\022.\n\013entitySpawn\030\003 \001(\0132\031.greyvarp"
-      "roto.EntitySpawn\0220\n\014playerJoined\030\004 \001(\0132\032"
-      ".greyvarproto.PlayerJoined\022,\n\020singleTile"
-      "Change\030\005 \001(\0132\022.greyvarproto.Tile\022 \n\004grid"
-      "\030\006 \001(\0132\022.greyvarproto.Grid\"\253\001\n\013PlayerFra"
-      "me\022\020\n\010playerId\030\001 \001(\005\0220\n\014moveResponse\030\002 \001"
-      "(\0132\032.greyvarproto.MoveResponse\022,\n\nplayer"
-      "Quit\030\003 \001(\0132\030.greyvarproto.PlayerQuit\022*\n\t"
-      "playerYou\030\004 \001(\0132\027.greyvarproto.PlayerYou"
-      "\"\016\n\014MoveResponse\"\037\n\013EntityMoved\022\020\n\010entit"
-      "yId\030\001 \001(\005\"\\\n\013EntitySpawn\022\020\n\010entityId\030\001 \001"
-      "(\005\022\t\n\001x\030\002 \001(\005\022\t\n\001y\030\003 \001(\005\022\t\n\001w\030\004 \001(\005\022\t\n\001h"
-      "\030\005 \001(\005\022\017\n\007texture\030\006 \001(\t\"\036\n\nPlayerQuit\022\020\n"
-      "\010playerId\030\001 \001(\005\"%\n\021PlayerAlreadyHere\022\020\n\010"
-      "playerId\030\001 \001(\005\" \n\014PlayerJoined\022\020\n\010userna"
-      "me\030\001 \001(\t\"\035\n\tPlayerYou\022\020\n\010playerId\030\001 \001(\005\""
-      "X\n\004Tile\022\013\n\003col\030\001 \001(\r\022\013\n\003row\030\002 \001(\r\022\013\n\003tex"
-      "\030\003 \001(\t\022\r\n\005flipH\030\004 \001(\010\022\r\n\005flipV\030\005 \001(\010\022\013\n\003"
-      "rot\030\006 \001(\005\"8\n\004Grid\022\r\n\005title\030\001 \001(\t\022!\n\005tile"
-      "s\030\002 \003(\0132\022.greyvarproto.Tile\"g\n\022Connectio"
-      "nResponse\022\025\n\rserverVersion\030\001 \001(\t\022:\n\021play"
-      "erAlreadyHere\030\005 \003(\0132\037.greyvarproto.Playe"
-      "rAlreadyHere\"\014\n\nNoResponseb\006proto3"
+      "arproto\"\277\003\n\023ServerFrameResponse\0220\n\014moveR"
+      "esponse\030\001 \001(\0132\032.greyvarproto.MoveRespons"
+      "e\022.\n\013entityMoved\030\002 \001(\0132\031.greyvarproto.En"
+      "tityMoved\022.\n\013entitySpawn\030\003 \001(\0132\031.greyvar"
+      "proto.EntitySpawn\022,\n\nplayerQuit\030\004 \001(\0132\030."
+      "greyvarproto.PlayerQuit\022:\n\021playerAlready"
+      "Here\030\005 \001(\0132\037.greyvarproto.PlayerAlreadyH"
+      "ere\0220\n\014playerJoined\030\006 \001(\0132\032.greyvarproto"
+      ".PlayerJoined\022*\n\tplayerYou\030\007 \001(\0132\027.greyv"
+      "arproto.PlayerYou\022,\n\020singleTileChange\030\010 "
+      "\001(\0132\022.greyvarproto.Tile\022 \n\004grid\030\t \001(\0132\022."
+      "greyvarproto.Grid\" \n\014MoveResponse\022\020\n\010pla"
+      "yerId\030\001 \001(\005\"\037\n\013EntityMoved\022\020\n\010entityId\030\001"
+      " \001(\005\"\\\n\013EntitySpawn\022\020\n\010entityId\030\001 \001(\005\022\t\n"
+      "\001x\030\002 \001(\005\022\t\n\001y\030\003 \001(\005\022\t\n\001w\030\004 \001(\005\022\t\n\001h\030\005 \001("
+      "\005\022\017\n\007texture\030\006 \001(\t\"\036\n\nPlayerQuit\022\020\n\010play"
+      "erId\030\001 \001(\005\"%\n\021PlayerAlreadyHere\022\020\n\010playe"
+      "rId\030\001 \001(\005\" \n\014PlayerJoined\022\020\n\010username\030\001 "
+      "\001(\t\"\035\n\tPlayerYou\022\020\n\010playerId\030\001 \001(\005\"X\n\004Ti"
+      "le\022\013\n\003col\030\001 \001(\005\022\013\n\003row\030\002 \001(\005\022\013\n\003tex\030\003 \001("
+      "\t\022\r\n\005flipH\030\004 \001(\010\022\r\n\005flipV\030\005 \001(\010\022\013\n\003rot\030\006"
+      " \001(\005\"8\n\004Grid\022\r\n\005title\030\001 \001(\t\022!\n\005tiles\030\002 \003"
+      "(\0132\022.greyvarproto.Tile\"+\n\022ConnectionResp"
+      "onse\022\025\n\rserverVersion\030\001 \001(\t\"\014\n\nNoRespons"
+      "eb\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 1074);
+      descriptor, 1009);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "server_to_client_messages.proto", &protobuf_RegisterTypes);
 }
@@ -511,22 +480,33 @@ namespace greyvarproto {
 // ===================================================================
 
 void ServerFrameResponse::InitAsDefaultInstance() {
+  ::greyvarproto::_ServerFrameResponse_default_instance_._instance.get_mutable()->moveresponse_ = const_cast< ::greyvarproto::MoveResponse*>(
+      ::greyvarproto::MoveResponse::internal_default_instance());
   ::greyvarproto::_ServerFrameResponse_default_instance_._instance.get_mutable()->entitymoved_ = const_cast< ::greyvarproto::EntityMoved*>(
       ::greyvarproto::EntityMoved::internal_default_instance());
   ::greyvarproto::_ServerFrameResponse_default_instance_._instance.get_mutable()->entityspawn_ = const_cast< ::greyvarproto::EntitySpawn*>(
       ::greyvarproto::EntitySpawn::internal_default_instance());
+  ::greyvarproto::_ServerFrameResponse_default_instance_._instance.get_mutable()->playerquit_ = const_cast< ::greyvarproto::PlayerQuit*>(
+      ::greyvarproto::PlayerQuit::internal_default_instance());
+  ::greyvarproto::_ServerFrameResponse_default_instance_._instance.get_mutable()->playeralreadyhere_ = const_cast< ::greyvarproto::PlayerAlreadyHere*>(
+      ::greyvarproto::PlayerAlreadyHere::internal_default_instance());
   ::greyvarproto::_ServerFrameResponse_default_instance_._instance.get_mutable()->playerjoined_ = const_cast< ::greyvarproto::PlayerJoined*>(
       ::greyvarproto::PlayerJoined::internal_default_instance());
+  ::greyvarproto::_ServerFrameResponse_default_instance_._instance.get_mutable()->playeryou_ = const_cast< ::greyvarproto::PlayerYou*>(
+      ::greyvarproto::PlayerYou::internal_default_instance());
   ::greyvarproto::_ServerFrameResponse_default_instance_._instance.get_mutable()->singletilechange_ = const_cast< ::greyvarproto::Tile*>(
       ::greyvarproto::Tile::internal_default_instance());
   ::greyvarproto::_ServerFrameResponse_default_instance_._instance.get_mutable()->grid_ = const_cast< ::greyvarproto::Grid*>(
       ::greyvarproto::Grid::internal_default_instance());
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int ServerFrameResponse::kPlayerFramesFieldNumber;
+const int ServerFrameResponse::kMoveResponseFieldNumber;
 const int ServerFrameResponse::kEntityMovedFieldNumber;
 const int ServerFrameResponse::kEntitySpawnFieldNumber;
+const int ServerFrameResponse::kPlayerQuitFieldNumber;
+const int ServerFrameResponse::kPlayerAlreadyHereFieldNumber;
 const int ServerFrameResponse::kPlayerJoinedFieldNumber;
+const int ServerFrameResponse::kPlayerYouFieldNumber;
 const int ServerFrameResponse::kSingleTileChangeFieldNumber;
 const int ServerFrameResponse::kGridFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -540,9 +520,13 @@ ServerFrameResponse::ServerFrameResponse()
 }
 ServerFrameResponse::ServerFrameResponse(const ServerFrameResponse& from)
   : ::google::protobuf::Message(),
-      _internal_metadata_(NULL),
-      playerframes_(from.playerframes_) {
+      _internal_metadata_(NULL) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from.has_moveresponse()) {
+    moveresponse_ = new ::greyvarproto::MoveResponse(*from.moveresponse_);
+  } else {
+    moveresponse_ = NULL;
+  }
   if (from.has_entitymoved()) {
     entitymoved_ = new ::greyvarproto::EntityMoved(*from.entitymoved_);
   } else {
@@ -553,10 +537,25 @@ ServerFrameResponse::ServerFrameResponse(const ServerFrameResponse& from)
   } else {
     entityspawn_ = NULL;
   }
+  if (from.has_playerquit()) {
+    playerquit_ = new ::greyvarproto::PlayerQuit(*from.playerquit_);
+  } else {
+    playerquit_ = NULL;
+  }
+  if (from.has_playeralreadyhere()) {
+    playeralreadyhere_ = new ::greyvarproto::PlayerAlreadyHere(*from.playeralreadyhere_);
+  } else {
+    playeralreadyhere_ = NULL;
+  }
   if (from.has_playerjoined()) {
     playerjoined_ = new ::greyvarproto::PlayerJoined(*from.playerjoined_);
   } else {
     playerjoined_ = NULL;
+  }
+  if (from.has_playeryou()) {
+    playeryou_ = new ::greyvarproto::PlayerYou(*from.playeryou_);
+  } else {
+    playeryou_ = NULL;
   }
   if (from.has_singletilechange()) {
     singletilechange_ = new ::greyvarproto::Tile(*from.singletilechange_);
@@ -572,9 +571,9 @@ ServerFrameResponse::ServerFrameResponse(const ServerFrameResponse& from)
 }
 
 void ServerFrameResponse::SharedCtor() {
-  ::memset(&entitymoved_, 0, static_cast<size_t>(
+  ::memset(&moveresponse_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&grid_) -
-      reinterpret_cast<char*>(&entitymoved_)) + sizeof(grid_));
+      reinterpret_cast<char*>(&moveresponse_)) + sizeof(grid_));
 }
 
 ServerFrameResponse::~ServerFrameResponse() {
@@ -583,9 +582,13 @@ ServerFrameResponse::~ServerFrameResponse() {
 }
 
 void ServerFrameResponse::SharedDtor() {
+  if (this != internal_default_instance()) delete moveresponse_;
   if (this != internal_default_instance()) delete entitymoved_;
   if (this != internal_default_instance()) delete entityspawn_;
+  if (this != internal_default_instance()) delete playerquit_;
+  if (this != internal_default_instance()) delete playeralreadyhere_;
   if (this != internal_default_instance()) delete playerjoined_;
+  if (this != internal_default_instance()) delete playeryou_;
   if (this != internal_default_instance()) delete singletilechange_;
   if (this != internal_default_instance()) delete grid_;
 }
@@ -610,7 +613,10 @@ void ServerFrameResponse::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  playerframes_.Clear();
+  if (GetArenaNoVirtual() == NULL && moveresponse_ != NULL) {
+    delete moveresponse_;
+  }
+  moveresponse_ = NULL;
   if (GetArenaNoVirtual() == NULL && entitymoved_ != NULL) {
     delete entitymoved_;
   }
@@ -619,10 +625,22 @@ void ServerFrameResponse::Clear() {
     delete entityspawn_;
   }
   entityspawn_ = NULL;
+  if (GetArenaNoVirtual() == NULL && playerquit_ != NULL) {
+    delete playerquit_;
+  }
+  playerquit_ = NULL;
+  if (GetArenaNoVirtual() == NULL && playeralreadyhere_ != NULL) {
+    delete playeralreadyhere_;
+  }
+  playeralreadyhere_ = NULL;
   if (GetArenaNoVirtual() == NULL && playerjoined_ != NULL) {
     delete playerjoined_;
   }
   playerjoined_ = NULL;
+  if (GetArenaNoVirtual() == NULL && playeryou_ != NULL) {
+    delete playeryou_;
+  }
+  playeryou_ = NULL;
   if (GetArenaNoVirtual() == NULL && singletilechange_ != NULL) {
     delete singletilechange_;
   }
@@ -644,12 +662,12 @@ bool ServerFrameResponse::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .greyvarproto.PlayerFrame playerFrames = 1;
+      // .greyvarproto.MoveResponse moveResponse = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-                input, add_playerframes()));
+               input, mutable_moveresponse()));
         } else {
           goto handle_unusual;
         }
@@ -680,10 +698,34 @@ bool ServerFrameResponse::MergePartialFromCodedStream(
         break;
       }
 
-      // .greyvarproto.PlayerJoined playerJoined = 4;
+      // .greyvarproto.PlayerQuit playerQuit = 4;
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_playerquit()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .greyvarproto.PlayerAlreadyHere playerAlreadyHere = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(42u /* 42 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_playeralreadyhere()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .greyvarproto.PlayerJoined playerJoined = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(50u /* 50 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
                input, mutable_playerjoined()));
         } else {
@@ -692,10 +734,22 @@ bool ServerFrameResponse::MergePartialFromCodedStream(
         break;
       }
 
-      // .greyvarproto.Tile singleTileChange = 5;
-      case 5: {
+      // .greyvarproto.PlayerYou playerYou = 7;
+      case 7: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(42u /* 42 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(58u /* 58 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_playeryou()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .greyvarproto.Tile singleTileChange = 8;
+      case 8: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(66u /* 66 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
                input, mutable_singletilechange()));
         } else {
@@ -704,10 +758,10 @@ bool ServerFrameResponse::MergePartialFromCodedStream(
         break;
       }
 
-      // .greyvarproto.Grid grid = 6;
-      case 6: {
+      // .greyvarproto.Grid grid = 9;
+      case 9: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(50u /* 50 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(74u /* 74 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
                input, mutable_grid()));
         } else {
@@ -742,13 +796,10 @@ void ServerFrameResponse::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .greyvarproto.PlayerFrame playerFrames = 1;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->playerframes_size()); i < n; i++) {
+  // .greyvarproto.MoveResponse moveResponse = 1;
+  if (this->has_moveresponse()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1,
-      this->playerframes(static_cast<int>(i)),
-      output);
+      1, this->_internal_moveresponse(), output);
   }
 
   // .greyvarproto.EntityMoved entityMoved = 2;
@@ -763,22 +814,40 @@ void ServerFrameResponse::SerializeWithCachedSizes(
       3, this->_internal_entityspawn(), output);
   }
 
-  // .greyvarproto.PlayerJoined playerJoined = 4;
+  // .greyvarproto.PlayerQuit playerQuit = 4;
+  if (this->has_playerquit()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      4, this->_internal_playerquit(), output);
+  }
+
+  // .greyvarproto.PlayerAlreadyHere playerAlreadyHere = 5;
+  if (this->has_playeralreadyhere()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      5, this->_internal_playeralreadyhere(), output);
+  }
+
+  // .greyvarproto.PlayerJoined playerJoined = 6;
   if (this->has_playerjoined()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4, this->_internal_playerjoined(), output);
+      6, this->_internal_playerjoined(), output);
   }
 
-  // .greyvarproto.Tile singleTileChange = 5;
+  // .greyvarproto.PlayerYou playerYou = 7;
+  if (this->has_playeryou()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      7, this->_internal_playeryou(), output);
+  }
+
+  // .greyvarproto.Tile singleTileChange = 8;
   if (this->has_singletilechange()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      5, this->_internal_singletilechange(), output);
+      8, this->_internal_singletilechange(), output);
   }
 
-  // .greyvarproto.Grid grid = 6;
+  // .greyvarproto.Grid grid = 9;
   if (this->has_grid()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      6, this->_internal_grid(), output);
+      9, this->_internal_grid(), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -795,12 +864,11 @@ void ServerFrameResponse::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .greyvarproto.PlayerFrame playerFrames = 1;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->playerframes_size()); i < n; i++) {
+  // .greyvarproto.MoveResponse moveResponse = 1;
+  if (this->has_moveresponse()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        1, this->playerframes(static_cast<int>(i)), deterministic, target);
+        1, this->_internal_moveresponse(), deterministic, target);
   }
 
   // .greyvarproto.EntityMoved entityMoved = 2;
@@ -817,25 +885,46 @@ void ServerFrameResponse::SerializeWithCachedSizes(
         3, this->_internal_entityspawn(), deterministic, target);
   }
 
-  // .greyvarproto.PlayerJoined playerJoined = 4;
+  // .greyvarproto.PlayerQuit playerQuit = 4;
+  if (this->has_playerquit()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        4, this->_internal_playerquit(), deterministic, target);
+  }
+
+  // .greyvarproto.PlayerAlreadyHere playerAlreadyHere = 5;
+  if (this->has_playeralreadyhere()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        5, this->_internal_playeralreadyhere(), deterministic, target);
+  }
+
+  // .greyvarproto.PlayerJoined playerJoined = 6;
   if (this->has_playerjoined()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        4, this->_internal_playerjoined(), deterministic, target);
+        6, this->_internal_playerjoined(), deterministic, target);
   }
 
-  // .greyvarproto.Tile singleTileChange = 5;
+  // .greyvarproto.PlayerYou playerYou = 7;
+  if (this->has_playeryou()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        7, this->_internal_playeryou(), deterministic, target);
+  }
+
+  // .greyvarproto.Tile singleTileChange = 8;
   if (this->has_singletilechange()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        5, this->_internal_singletilechange(), deterministic, target);
+        8, this->_internal_singletilechange(), deterministic, target);
   }
 
-  // .greyvarproto.Grid grid = 6;
+  // .greyvarproto.Grid grid = 9;
   if (this->has_grid()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        6, this->_internal_grid(), deterministic, target);
+        9, this->_internal_grid(), deterministic, target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -855,15 +944,11 @@ size_t ServerFrameResponse::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // repeated .greyvarproto.PlayerFrame playerFrames = 1;
-  {
-    unsigned int count = static_cast<unsigned int>(this->playerframes_size());
-    total_size += 1UL * count;
-    for (unsigned int i = 0; i < count; i++) {
-      total_size +=
-        ::google::protobuf::internal::WireFormatLite::MessageSize(
-          this->playerframes(static_cast<int>(i)));
-    }
+  // .greyvarproto.MoveResponse moveResponse = 1;
+  if (this->has_moveresponse()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *moveresponse_);
   }
 
   // .greyvarproto.EntityMoved entityMoved = 2;
@@ -880,21 +965,42 @@ size_t ServerFrameResponse::ByteSizeLong() const {
         *entityspawn_);
   }
 
-  // .greyvarproto.PlayerJoined playerJoined = 4;
+  // .greyvarproto.PlayerQuit playerQuit = 4;
+  if (this->has_playerquit()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *playerquit_);
+  }
+
+  // .greyvarproto.PlayerAlreadyHere playerAlreadyHere = 5;
+  if (this->has_playeralreadyhere()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *playeralreadyhere_);
+  }
+
+  // .greyvarproto.PlayerJoined playerJoined = 6;
   if (this->has_playerjoined()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
         *playerjoined_);
   }
 
-  // .greyvarproto.Tile singleTileChange = 5;
+  // .greyvarproto.PlayerYou playerYou = 7;
+  if (this->has_playeryou()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *playeryou_);
+  }
+
+  // .greyvarproto.Tile singleTileChange = 8;
   if (this->has_singletilechange()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
         *singletilechange_);
   }
 
-  // .greyvarproto.Grid grid = 6;
+  // .greyvarproto.Grid grid = 9;
   if (this->has_grid()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
@@ -928,15 +1034,26 @@ void ServerFrameResponse::MergeFrom(const ServerFrameResponse& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  playerframes_.MergeFrom(from.playerframes_);
+  if (from.has_moveresponse()) {
+    mutable_moveresponse()->::greyvarproto::MoveResponse::MergeFrom(from.moveresponse());
+  }
   if (from.has_entitymoved()) {
     mutable_entitymoved()->::greyvarproto::EntityMoved::MergeFrom(from.entitymoved());
   }
   if (from.has_entityspawn()) {
     mutable_entityspawn()->::greyvarproto::EntitySpawn::MergeFrom(from.entityspawn());
   }
+  if (from.has_playerquit()) {
+    mutable_playerquit()->::greyvarproto::PlayerQuit::MergeFrom(from.playerquit());
+  }
+  if (from.has_playeralreadyhere()) {
+    mutable_playeralreadyhere()->::greyvarproto::PlayerAlreadyHere::MergeFrom(from.playeralreadyhere());
+  }
   if (from.has_playerjoined()) {
     mutable_playerjoined()->::greyvarproto::PlayerJoined::MergeFrom(from.playerjoined());
+  }
+  if (from.has_playeryou()) {
+    mutable_playeryou()->::greyvarproto::PlayerYou::MergeFrom(from.playeryou());
   }
   if (from.has_singletilechange()) {
     mutable_singletilechange()->::greyvarproto::Tile::MergeFrom(from.singletilechange());
@@ -970,10 +1087,13 @@ void ServerFrameResponse::Swap(ServerFrameResponse* other) {
 }
 void ServerFrameResponse::InternalSwap(ServerFrameResponse* other) {
   using std::swap;
-  CastToBase(&playerframes_)->InternalSwap(CastToBase(&other->playerframes_));
+  swap(moveresponse_, other->moveresponse_);
   swap(entitymoved_, other->entitymoved_);
   swap(entityspawn_, other->entityspawn_);
+  swap(playerquit_, other->playerquit_);
+  swap(playeralreadyhere_, other->playeralreadyhere_);
   swap(playerjoined_, other->playerjoined_);
+  swap(playeryou_, other->playeryou_);
   swap(singletilechange_, other->singletilechange_);
   swap(grid_, other->grid_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
@@ -987,381 +1107,10 @@ void ServerFrameResponse::InternalSwap(ServerFrameResponse* other) {
 
 // ===================================================================
 
-void PlayerFrame::InitAsDefaultInstance() {
-  ::greyvarproto::_PlayerFrame_default_instance_._instance.get_mutable()->moveresponse_ = const_cast< ::greyvarproto::MoveResponse*>(
-      ::greyvarproto::MoveResponse::internal_default_instance());
-  ::greyvarproto::_PlayerFrame_default_instance_._instance.get_mutable()->playerquit_ = const_cast< ::greyvarproto::PlayerQuit*>(
-      ::greyvarproto::PlayerQuit::internal_default_instance());
-  ::greyvarproto::_PlayerFrame_default_instance_._instance.get_mutable()->playeryou_ = const_cast< ::greyvarproto::PlayerYou*>(
-      ::greyvarproto::PlayerYou::internal_default_instance());
-}
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int PlayerFrame::kPlayerIdFieldNumber;
-const int PlayerFrame::kMoveResponseFieldNumber;
-const int PlayerFrame::kPlayerQuitFieldNumber;
-const int PlayerFrame::kPlayerYouFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-
-PlayerFrame::PlayerFrame()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  ::google::protobuf::internal::InitSCC(
-      &protobuf_server_5fto_5fclient_5fmessages_2eproto::scc_info_PlayerFrame.base);
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:greyvarproto.PlayerFrame)
-}
-PlayerFrame::PlayerFrame(const PlayerFrame& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(NULL) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  if (from.has_moveresponse()) {
-    moveresponse_ = new ::greyvarproto::MoveResponse(*from.moveresponse_);
-  } else {
-    moveresponse_ = NULL;
-  }
-  if (from.has_playerquit()) {
-    playerquit_ = new ::greyvarproto::PlayerQuit(*from.playerquit_);
-  } else {
-    playerquit_ = NULL;
-  }
-  if (from.has_playeryou()) {
-    playeryou_ = new ::greyvarproto::PlayerYou(*from.playeryou_);
-  } else {
-    playeryou_ = NULL;
-  }
-  playerid_ = from.playerid_;
-  // @@protoc_insertion_point(copy_constructor:greyvarproto.PlayerFrame)
-}
-
-void PlayerFrame::SharedCtor() {
-  ::memset(&moveresponse_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&playerid_) -
-      reinterpret_cast<char*>(&moveresponse_)) + sizeof(playerid_));
-}
-
-PlayerFrame::~PlayerFrame() {
-  // @@protoc_insertion_point(destructor:greyvarproto.PlayerFrame)
-  SharedDtor();
-}
-
-void PlayerFrame::SharedDtor() {
-  if (this != internal_default_instance()) delete moveresponse_;
-  if (this != internal_default_instance()) delete playerquit_;
-  if (this != internal_default_instance()) delete playeryou_;
-}
-
-void PlayerFrame::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const ::google::protobuf::Descriptor* PlayerFrame::descriptor() {
-  ::protobuf_server_5fto_5fclient_5fmessages_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_server_5fto_5fclient_5fmessages_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
-}
-
-const PlayerFrame& PlayerFrame::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_server_5fto_5fclient_5fmessages_2eproto::scc_info_PlayerFrame.base);
-  return *internal_default_instance();
-}
-
-
-void PlayerFrame::Clear() {
-// @@protoc_insertion_point(message_clear_start:greyvarproto.PlayerFrame)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  if (GetArenaNoVirtual() == NULL && moveresponse_ != NULL) {
-    delete moveresponse_;
-  }
-  moveresponse_ = NULL;
-  if (GetArenaNoVirtual() == NULL && playerquit_ != NULL) {
-    delete playerquit_;
-  }
-  playerquit_ = NULL;
-  if (GetArenaNoVirtual() == NULL && playeryou_ != NULL) {
-    delete playeryou_;
-  }
-  playeryou_ = NULL;
-  playerid_ = 0;
-  _internal_metadata_.Clear();
-}
-
-bool PlayerFrame::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:greyvarproto.PlayerFrame)
-  for (;;) {
-    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // int32 playerId = 1;
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &playerid_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // .greyvarproto.MoveResponse moveResponse = 2;
-      case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_moveresponse()));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // .greyvarproto.PlayerQuit playerQuit = 3;
-      case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_playerquit()));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // .greyvarproto.PlayerYou playerYou = 4;
-      case 4: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_playeryou()));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:greyvarproto.PlayerFrame)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:greyvarproto.PlayerFrame)
-  return false;
-#undef DO_
-}
-
-void PlayerFrame::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:greyvarproto.PlayerFrame)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // int32 playerId = 1;
-  if (this->playerid() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->playerid(), output);
-  }
-
-  // .greyvarproto.MoveResponse moveResponse = 2;
-  if (this->has_moveresponse()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->_internal_moveresponse(), output);
-  }
-
-  // .greyvarproto.PlayerQuit playerQuit = 3;
-  if (this->has_playerquit()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      3, this->_internal_playerquit(), output);
-  }
-
-  // .greyvarproto.PlayerYou playerYou = 4;
-  if (this->has_playeryou()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4, this->_internal_playeryou(), output);
-  }
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
-  }
-  // @@protoc_insertion_point(serialize_end:greyvarproto.PlayerFrame)
-}
-
-::google::protobuf::uint8* PlayerFrame::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:greyvarproto.PlayerFrame)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // int32 playerId = 1;
-  if (this->playerid() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->playerid(), target);
-  }
-
-  // .greyvarproto.MoveResponse moveResponse = 2;
-  if (this->has_moveresponse()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageToArray(
-        2, this->_internal_moveresponse(), deterministic, target);
-  }
-
-  // .greyvarproto.PlayerQuit playerQuit = 3;
-  if (this->has_playerquit()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageToArray(
-        3, this->_internal_playerquit(), deterministic, target);
-  }
-
-  // .greyvarproto.PlayerYou playerYou = 4;
-  if (this->has_playeryou()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageToArray(
-        4, this->_internal_playeryou(), deterministic, target);
-  }
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:greyvarproto.PlayerFrame)
-  return target;
-}
-
-size_t PlayerFrame::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:greyvarproto.PlayerFrame)
-  size_t total_size = 0;
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
-  }
-  // .greyvarproto.MoveResponse moveResponse = 2;
-  if (this->has_moveresponse()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *moveresponse_);
-  }
-
-  // .greyvarproto.PlayerQuit playerQuit = 3;
-  if (this->has_playerquit()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *playerquit_);
-  }
-
-  // .greyvarproto.PlayerYou playerYou = 4;
-  if (this->has_playeryou()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *playeryou_);
-  }
-
-  // int32 playerId = 1;
-  if (this->playerid() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->playerid());
-  }
-
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void PlayerFrame::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:greyvarproto.PlayerFrame)
-  GOOGLE_DCHECK_NE(&from, this);
-  const PlayerFrame* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const PlayerFrame>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:greyvarproto.PlayerFrame)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:greyvarproto.PlayerFrame)
-    MergeFrom(*source);
-  }
-}
-
-void PlayerFrame::MergeFrom(const PlayerFrame& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:greyvarproto.PlayerFrame)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from.has_moveresponse()) {
-    mutable_moveresponse()->::greyvarproto::MoveResponse::MergeFrom(from.moveresponse());
-  }
-  if (from.has_playerquit()) {
-    mutable_playerquit()->::greyvarproto::PlayerQuit::MergeFrom(from.playerquit());
-  }
-  if (from.has_playeryou()) {
-    mutable_playeryou()->::greyvarproto::PlayerYou::MergeFrom(from.playeryou());
-  }
-  if (from.playerid() != 0) {
-    set_playerid(from.playerid());
-  }
-}
-
-void PlayerFrame::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:greyvarproto.PlayerFrame)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void PlayerFrame::CopyFrom(const PlayerFrame& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:greyvarproto.PlayerFrame)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool PlayerFrame::IsInitialized() const {
-  return true;
-}
-
-void PlayerFrame::Swap(PlayerFrame* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
-void PlayerFrame::InternalSwap(PlayerFrame* other) {
-  using std::swap;
-  swap(moveresponse_, other->moveresponse_);
-  swap(playerquit_, other->playerquit_);
-  swap(playeryou_, other->playeryou_);
-  swap(playerid_, other->playerid_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-}
-
-::google::protobuf::Metadata PlayerFrame::GetMetadata() const {
-  protobuf_server_5fto_5fclient_5fmessages_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_server_5fto_5fclient_5fmessages_2eproto::file_level_metadata[kIndexInFileMessages];
-}
-
-
-// ===================================================================
-
 void MoveResponse::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int MoveResponse::kPlayerIdFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 MoveResponse::MoveResponse()
@@ -1375,10 +1124,12 @@ MoveResponse::MoveResponse(const MoveResponse& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
+  playerid_ = from.playerid_;
   // @@protoc_insertion_point(copy_constructor:greyvarproto.MoveResponse)
 }
 
 void MoveResponse::SharedCtor() {
+  playerid_ = 0;
 }
 
 MoveResponse::~MoveResponse() {
@@ -1409,6 +1160,7 @@ void MoveResponse::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  playerid_ = 0;
   _internal_metadata_.Clear();
 }
 
@@ -1421,12 +1173,31 @@ bool MoveResponse::MergePartialFromCodedStream(
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
-  handle_unusual:
-    if (tag == 0) {
-      goto success;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // int32 playerId = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &playerid_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
     }
-    DO_(::google::protobuf::internal::WireFormat::SkipField(
-          input, tag, _internal_metadata_.mutable_unknown_fields()));
   }
 success:
   // @@protoc_insertion_point(parse_success:greyvarproto.MoveResponse)
@@ -1443,6 +1214,11 @@ void MoveResponse::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  // int32 playerId = 1;
+  if (this->playerid() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->playerid(), output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -1456,6 +1232,11 @@ void MoveResponse::SerializeWithCachedSizes(
   // @@protoc_insertion_point(serialize_to_array_start:greyvarproto.MoveResponse)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
+
+  // int32 playerId = 1;
+  if (this->playerid() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->playerid(), target);
+  }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
@@ -1474,6 +1255,13 @@ size_t MoveResponse::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
+  // int32 playerId = 1;
+  if (this->playerid() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->playerid());
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
@@ -1501,6 +1289,9 @@ void MoveResponse::MergeFrom(const MoveResponse& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (from.playerid() != 0) {
+    set_playerid(from.playerid());
+  }
 }
 
 void MoveResponse::CopyFrom(const ::google::protobuf::Message& from) {
@@ -1527,6 +1318,7 @@ void MoveResponse::Swap(MoveResponse* other) {
 }
 void MoveResponse::InternalSwap(MoveResponse* other) {
   using std::swap;
+  swap(playerid_, other->playerid_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
@@ -3188,13 +2980,13 @@ bool Tile::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // uint32 col = 1;
+      // int32 col = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &col_)));
         } else {
           goto handle_unusual;
@@ -3202,13 +2994,13 @@ bool Tile::MergePartialFromCodedStream(
         break;
       }
 
-      // uint32 row = 2;
+      // int32 row = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &row_)));
         } else {
           goto handle_unusual;
@@ -3300,14 +3092,14 @@ void Tile::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 col = 1;
+  // int32 col = 1;
   if (this->col() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->col(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->col(), output);
   }
 
-  // uint32 row = 2;
+  // int32 row = 2;
   if (this->row() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->row(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->row(), output);
   }
 
   // string tex = 3;
@@ -3349,14 +3141,14 @@ void Tile::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 col = 1;
+  // int32 col = 1;
   if (this->col() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->col(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->col(), target);
   }
 
-  // uint32 row = 2;
+  // int32 row = 2;
   if (this->row() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->row(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->row(), target);
   }
 
   // string tex = 3;
@@ -3409,17 +3201,17 @@ size_t Tile::ByteSizeLong() const {
         this->tex());
   }
 
-  // uint32 col = 1;
+  // int32 col = 1;
   if (this->col() != 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->col());
   }
 
-  // uint32 row = 2;
+  // int32 row = 2;
   if (this->row() != 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->row());
   }
 
@@ -3821,7 +3613,6 @@ void ConnectionResponse::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int ConnectionResponse::kServerVersionFieldNumber;
-const int ConnectionResponse::kPlayerAlreadyHereFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 ConnectionResponse::ConnectionResponse()
@@ -3833,8 +3624,7 @@ ConnectionResponse::ConnectionResponse()
 }
 ConnectionResponse::ConnectionResponse(const ConnectionResponse& from)
   : ::google::protobuf::Message(),
-      _internal_metadata_(NULL),
-      playeralreadyhere_(from.playeralreadyhere_) {
+      _internal_metadata_(NULL) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   serverversion_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.serverversion().size() > 0) {
@@ -3876,7 +3666,6 @@ void ConnectionResponse::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  playeralreadyhere_.Clear();
   serverversion_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   _internal_metadata_.Clear();
 }
@@ -3901,18 +3690,6 @@ bool ConnectionResponse::MergePartialFromCodedStream(
             this->serverversion().data(), static_cast<int>(this->serverversion().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
             "greyvarproto.ConnectionResponse.serverVersion"));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // repeated .greyvarproto.PlayerAlreadyHere playerAlreadyHere = 5;
-      case 5: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(42u /* 42 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-                input, add_playeralreadyhere()));
         } else {
           goto handle_unusual;
         }
@@ -3955,15 +3732,6 @@ void ConnectionResponse::SerializeWithCachedSizes(
       1, this->serverversion(), output);
   }
 
-  // repeated .greyvarproto.PlayerAlreadyHere playerAlreadyHere = 5;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->playeralreadyhere_size()); i < n; i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      5,
-      this->playeralreadyhere(static_cast<int>(i)),
-      output);
-  }
-
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -3989,14 +3757,6 @@ void ConnectionResponse::SerializeWithCachedSizes(
         1, this->serverversion(), target);
   }
 
-  // repeated .greyvarproto.PlayerAlreadyHere playerAlreadyHere = 5;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->playeralreadyhere_size()); i < n; i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageToArray(
-        5, this->playeralreadyhere(static_cast<int>(i)), deterministic, target);
-  }
-
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
@@ -4014,17 +3774,6 @@ size_t ConnectionResponse::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // repeated .greyvarproto.PlayerAlreadyHere playerAlreadyHere = 5;
-  {
-    unsigned int count = static_cast<unsigned int>(this->playeralreadyhere_size());
-    total_size += 1UL * count;
-    for (unsigned int i = 0; i < count; i++) {
-      total_size +=
-        ::google::protobuf::internal::WireFormatLite::MessageSize(
-          this->playeralreadyhere(static_cast<int>(i)));
-    }
-  }
-
   // string serverVersion = 1;
   if (this->serverversion().size() > 0) {
     total_size += 1 +
@@ -4059,7 +3808,6 @@ void ConnectionResponse::MergeFrom(const ConnectionResponse& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  playeralreadyhere_.MergeFrom(from.playeralreadyhere_);
   if (from.serverversion().size() > 0) {
 
     serverversion_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.serverversion_);
@@ -4090,7 +3838,6 @@ void ConnectionResponse::Swap(ConnectionResponse* other) {
 }
 void ConnectionResponse::InternalSwap(ConnectionResponse* other) {
   using std::swap;
-  CastToBase(&playeralreadyhere_)->InternalSwap(CastToBase(&other->playeralreadyhere_));
   serverversion_.Swap(&other->serverversion_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   _internal_metadata_.Swap(&other->_internal_metadata_);
@@ -4287,9 +4034,6 @@ namespace google {
 namespace protobuf {
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::greyvarproto::ServerFrameResponse* Arena::CreateMaybeMessage< ::greyvarproto::ServerFrameResponse >(Arena* arena) {
   return Arena::CreateInternal< ::greyvarproto::ServerFrameResponse >(arena);
-}
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::greyvarproto::PlayerFrame* Arena::CreateMaybeMessage< ::greyvarproto::PlayerFrame >(Arena* arena) {
-  return Arena::CreateInternal< ::greyvarproto::PlayerFrame >(arena);
 }
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::greyvarproto::MoveResponse* Arena::CreateMaybeMessage< ::greyvarproto::MoveResponse >(Arena* arena) {
   return Arena::CreateInternal< ::greyvarproto::MoveResponse >(arena);

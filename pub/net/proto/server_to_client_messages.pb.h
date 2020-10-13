@@ -38,7 +38,7 @@ namespace protobuf_server_5fto_5fclient_5fmessages_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[13];
+  static const ::google::protobuf::internal::ParseTable schema[12];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -67,9 +67,6 @@ extern NoResponseDefaultTypeInternal _NoResponse_default_instance_;
 class PlayerAlreadyHere;
 class PlayerAlreadyHereDefaultTypeInternal;
 extern PlayerAlreadyHereDefaultTypeInternal _PlayerAlreadyHere_default_instance_;
-class PlayerFrame;
-class PlayerFrameDefaultTypeInternal;
-extern PlayerFrameDefaultTypeInternal _PlayerFrame_default_instance_;
 class PlayerJoined;
 class PlayerJoinedDefaultTypeInternal;
 extern PlayerJoinedDefaultTypeInternal _PlayerJoined_default_instance_;
@@ -95,7 +92,6 @@ template<> ::greyvarproto::Grid* Arena::CreateMaybeMessage<::greyvarproto::Grid>
 template<> ::greyvarproto::MoveResponse* Arena::CreateMaybeMessage<::greyvarproto::MoveResponse>(Arena*);
 template<> ::greyvarproto::NoResponse* Arena::CreateMaybeMessage<::greyvarproto::NoResponse>(Arena*);
 template<> ::greyvarproto::PlayerAlreadyHere* Arena::CreateMaybeMessage<::greyvarproto::PlayerAlreadyHere>(Arena*);
-template<> ::greyvarproto::PlayerFrame* Arena::CreateMaybeMessage<::greyvarproto::PlayerFrame>(Arena*);
 template<> ::greyvarproto::PlayerJoined* Arena::CreateMaybeMessage<::greyvarproto::PlayerJoined>(Arena*);
 template<> ::greyvarproto::PlayerQuit* Arena::CreateMaybeMessage<::greyvarproto::PlayerQuit>(Arena*);
 template<> ::greyvarproto::PlayerYou* Arena::CreateMaybeMessage<::greyvarproto::PlayerYou>(Arena*);
@@ -194,17 +190,17 @@ class ServerFrameResponse : public ::google::protobuf::Message /* @@protoc_inser
 
   // accessors -------------------------------------------------------
 
-  // repeated .greyvarproto.PlayerFrame playerFrames = 1;
-  int playerframes_size() const;
-  void clear_playerframes();
-  static const int kPlayerFramesFieldNumber = 1;
-  ::greyvarproto::PlayerFrame* mutable_playerframes(int index);
-  ::google::protobuf::RepeatedPtrField< ::greyvarproto::PlayerFrame >*
-      mutable_playerframes();
-  const ::greyvarproto::PlayerFrame& playerframes(int index) const;
-  ::greyvarproto::PlayerFrame* add_playerframes();
-  const ::google::protobuf::RepeatedPtrField< ::greyvarproto::PlayerFrame >&
-      playerframes() const;
+  // .greyvarproto.MoveResponse moveResponse = 1;
+  bool has_moveresponse() const;
+  void clear_moveresponse();
+  static const int kMoveResponseFieldNumber = 1;
+  private:
+  const ::greyvarproto::MoveResponse& _internal_moveresponse() const;
+  public:
+  const ::greyvarproto::MoveResponse& moveresponse() const;
+  ::greyvarproto::MoveResponse* release_moveresponse();
+  ::greyvarproto::MoveResponse* mutable_moveresponse();
+  void set_allocated_moveresponse(::greyvarproto::MoveResponse* moveresponse);
 
   // .greyvarproto.EntityMoved entityMoved = 2;
   bool has_entitymoved() const;
@@ -230,10 +226,34 @@ class ServerFrameResponse : public ::google::protobuf::Message /* @@protoc_inser
   ::greyvarproto::EntitySpawn* mutable_entityspawn();
   void set_allocated_entityspawn(::greyvarproto::EntitySpawn* entityspawn);
 
-  // .greyvarproto.PlayerJoined playerJoined = 4;
+  // .greyvarproto.PlayerQuit playerQuit = 4;
+  bool has_playerquit() const;
+  void clear_playerquit();
+  static const int kPlayerQuitFieldNumber = 4;
+  private:
+  const ::greyvarproto::PlayerQuit& _internal_playerquit() const;
+  public:
+  const ::greyvarproto::PlayerQuit& playerquit() const;
+  ::greyvarproto::PlayerQuit* release_playerquit();
+  ::greyvarproto::PlayerQuit* mutable_playerquit();
+  void set_allocated_playerquit(::greyvarproto::PlayerQuit* playerquit);
+
+  // .greyvarproto.PlayerAlreadyHere playerAlreadyHere = 5;
+  bool has_playeralreadyhere() const;
+  void clear_playeralreadyhere();
+  static const int kPlayerAlreadyHereFieldNumber = 5;
+  private:
+  const ::greyvarproto::PlayerAlreadyHere& _internal_playeralreadyhere() const;
+  public:
+  const ::greyvarproto::PlayerAlreadyHere& playeralreadyhere() const;
+  ::greyvarproto::PlayerAlreadyHere* release_playeralreadyhere();
+  ::greyvarproto::PlayerAlreadyHere* mutable_playeralreadyhere();
+  void set_allocated_playeralreadyhere(::greyvarproto::PlayerAlreadyHere* playeralreadyhere);
+
+  // .greyvarproto.PlayerJoined playerJoined = 6;
   bool has_playerjoined() const;
   void clear_playerjoined();
-  static const int kPlayerJoinedFieldNumber = 4;
+  static const int kPlayerJoinedFieldNumber = 6;
   private:
   const ::greyvarproto::PlayerJoined& _internal_playerjoined() const;
   public:
@@ -242,10 +262,22 @@ class ServerFrameResponse : public ::google::protobuf::Message /* @@protoc_inser
   ::greyvarproto::PlayerJoined* mutable_playerjoined();
   void set_allocated_playerjoined(::greyvarproto::PlayerJoined* playerjoined);
 
-  // .greyvarproto.Tile singleTileChange = 5;
+  // .greyvarproto.PlayerYou playerYou = 7;
+  bool has_playeryou() const;
+  void clear_playeryou();
+  static const int kPlayerYouFieldNumber = 7;
+  private:
+  const ::greyvarproto::PlayerYou& _internal_playeryou() const;
+  public:
+  const ::greyvarproto::PlayerYou& playeryou() const;
+  ::greyvarproto::PlayerYou* release_playeryou();
+  ::greyvarproto::PlayerYou* mutable_playeryou();
+  void set_allocated_playeryou(::greyvarproto::PlayerYou* playeryou);
+
+  // .greyvarproto.Tile singleTileChange = 8;
   bool has_singletilechange() const;
   void clear_singletilechange();
-  static const int kSingleTileChangeFieldNumber = 5;
+  static const int kSingleTileChangeFieldNumber = 8;
   private:
   const ::greyvarproto::Tile& _internal_singletilechange() const;
   public:
@@ -254,10 +286,10 @@ class ServerFrameResponse : public ::google::protobuf::Message /* @@protoc_inser
   ::greyvarproto::Tile* mutable_singletilechange();
   void set_allocated_singletilechange(::greyvarproto::Tile* singletilechange);
 
-  // .greyvarproto.Grid grid = 6;
+  // .greyvarproto.Grid grid = 9;
   bool has_grid() const;
   void clear_grid();
-  static const int kGridFieldNumber = 6;
+  static const int kGridFieldNumber = 9;
   private:
   const ::greyvarproto::Grid& _internal_grid() const;
   public:
@@ -270,154 +302,15 @@ class ServerFrameResponse : public ::google::protobuf::Message /* @@protoc_inser
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField< ::greyvarproto::PlayerFrame > playerframes_;
+  ::greyvarproto::MoveResponse* moveresponse_;
   ::greyvarproto::EntityMoved* entitymoved_;
   ::greyvarproto::EntitySpawn* entityspawn_;
+  ::greyvarproto::PlayerQuit* playerquit_;
+  ::greyvarproto::PlayerAlreadyHere* playeralreadyhere_;
   ::greyvarproto::PlayerJoined* playerjoined_;
+  ::greyvarproto::PlayerYou* playeryou_;
   ::greyvarproto::Tile* singletilechange_;
   ::greyvarproto::Grid* grid_;
-  mutable ::google::protobuf::internal::CachedSize _cached_size_;
-  friend struct ::protobuf_server_5fto_5fclient_5fmessages_2eproto::TableStruct;
-};
-// -------------------------------------------------------------------
-
-class PlayerFrame : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:greyvarproto.PlayerFrame) */ {
- public:
-  PlayerFrame();
-  virtual ~PlayerFrame();
-
-  PlayerFrame(const PlayerFrame& from);
-
-  inline PlayerFrame& operator=(const PlayerFrame& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  PlayerFrame(PlayerFrame&& from) noexcept
-    : PlayerFrame() {
-    *this = ::std::move(from);
-  }
-
-  inline PlayerFrame& operator=(PlayerFrame&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const PlayerFrame& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const PlayerFrame* internal_default_instance() {
-    return reinterpret_cast<const PlayerFrame*>(
-               &_PlayerFrame_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    1;
-
-  void Swap(PlayerFrame* other);
-  friend void swap(PlayerFrame& a, PlayerFrame& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline PlayerFrame* New() const final {
-    return CreateMaybeMessage<PlayerFrame>(NULL);
-  }
-
-  PlayerFrame* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<PlayerFrame>(arena);
-  }
-  void CopyFrom(const ::google::protobuf::Message& from) final;
-  void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const PlayerFrame& from);
-  void MergeFrom(const PlayerFrame& from);
-  void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) final;
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const final;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(PlayerFrame* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return NULL;
-  }
-  inline void* MaybeArenaPtr() const {
-    return NULL;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // .greyvarproto.MoveResponse moveResponse = 2;
-  bool has_moveresponse() const;
-  void clear_moveresponse();
-  static const int kMoveResponseFieldNumber = 2;
-  private:
-  const ::greyvarproto::MoveResponse& _internal_moveresponse() const;
-  public:
-  const ::greyvarproto::MoveResponse& moveresponse() const;
-  ::greyvarproto::MoveResponse* release_moveresponse();
-  ::greyvarproto::MoveResponse* mutable_moveresponse();
-  void set_allocated_moveresponse(::greyvarproto::MoveResponse* moveresponse);
-
-  // .greyvarproto.PlayerQuit playerQuit = 3;
-  bool has_playerquit() const;
-  void clear_playerquit();
-  static const int kPlayerQuitFieldNumber = 3;
-  private:
-  const ::greyvarproto::PlayerQuit& _internal_playerquit() const;
-  public:
-  const ::greyvarproto::PlayerQuit& playerquit() const;
-  ::greyvarproto::PlayerQuit* release_playerquit();
-  ::greyvarproto::PlayerQuit* mutable_playerquit();
-  void set_allocated_playerquit(::greyvarproto::PlayerQuit* playerquit);
-
-  // .greyvarproto.PlayerYou playerYou = 4;
-  bool has_playeryou() const;
-  void clear_playeryou();
-  static const int kPlayerYouFieldNumber = 4;
-  private:
-  const ::greyvarproto::PlayerYou& _internal_playeryou() const;
-  public:
-  const ::greyvarproto::PlayerYou& playeryou() const;
-  ::greyvarproto::PlayerYou* release_playeryou();
-  ::greyvarproto::PlayerYou* mutable_playeryou();
-  void set_allocated_playeryou(::greyvarproto::PlayerYou* playeryou);
-
-  // int32 playerId = 1;
-  void clear_playerid();
-  static const int kPlayerIdFieldNumber = 1;
-  ::google::protobuf::int32 playerid() const;
-  void set_playerid(::google::protobuf::int32 value);
-
-  // @@protoc_insertion_point(class_scope:greyvarproto.PlayerFrame)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::greyvarproto::MoveResponse* moveresponse_;
-  ::greyvarproto::PlayerQuit* playerquit_;
-  ::greyvarproto::PlayerYou* playeryou_;
-  ::google::protobuf::int32 playerid_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_server_5fto_5fclient_5fmessages_2eproto::TableStruct;
 };
@@ -458,7 +351,7 @@ class MoveResponse : public ::google::protobuf::Message /* @@protoc_insertion_po
                &_MoveResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    1;
 
   void Swap(MoveResponse* other);
   friend void swap(MoveResponse& a, MoveResponse& b) {
@@ -510,10 +403,17 @@ class MoveResponse : public ::google::protobuf::Message /* @@protoc_insertion_po
 
   // accessors -------------------------------------------------------
 
+  // int32 playerId = 1;
+  void clear_playerid();
+  static const int kPlayerIdFieldNumber = 1;
+  ::google::protobuf::int32 playerid() const;
+  void set_playerid(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:greyvarproto.MoveResponse)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::int32 playerid_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_server_5fto_5fclient_5fmessages_2eproto::TableStruct;
 };
@@ -554,7 +454,7 @@ class EntityMoved : public ::google::protobuf::Message /* @@protoc_insertion_poi
                &_EntityMoved_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    2;
 
   void Swap(EntityMoved* other);
   friend void swap(EntityMoved& a, EntityMoved& b) {
@@ -657,7 +557,7 @@ class EntitySpawn : public ::google::protobuf::Message /* @@protoc_insertion_poi
                &_EntitySpawn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    3;
 
   void Swap(EntitySpawn* other);
   friend void swap(EntitySpawn& a, EntitySpawn& b) {
@@ -803,7 +703,7 @@ class PlayerQuit : public ::google::protobuf::Message /* @@protoc_insertion_poin
                &_PlayerQuit_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    4;
 
   void Swap(PlayerQuit* other);
   friend void swap(PlayerQuit& a, PlayerQuit& b) {
@@ -906,7 +806,7 @@ class PlayerAlreadyHere : public ::google::protobuf::Message /* @@protoc_inserti
                &_PlayerAlreadyHere_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    5;
 
   void Swap(PlayerAlreadyHere* other);
   friend void swap(PlayerAlreadyHere& a, PlayerAlreadyHere& b) {
@@ -1009,7 +909,7 @@ class PlayerJoined : public ::google::protobuf::Message /* @@protoc_insertion_po
                &_PlayerJoined_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    6;
 
   void Swap(PlayerJoined* other);
   friend void swap(PlayerJoined& a, PlayerJoined& b) {
@@ -1120,7 +1020,7 @@ class PlayerYou : public ::google::protobuf::Message /* @@protoc_insertion_point
                &_PlayerYou_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    7;
 
   void Swap(PlayerYou* other);
   friend void swap(PlayerYou& a, PlayerYou& b) {
@@ -1223,7 +1123,7 @@ class Tile : public ::google::protobuf::Message /* @@protoc_insertion_point(clas
                &_Tile_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    8;
 
   void Swap(Tile* other);
   friend void swap(Tile& a, Tile& b) {
@@ -1289,17 +1189,17 @@ class Tile : public ::google::protobuf::Message /* @@protoc_insertion_point(clas
   ::std::string* release_tex();
   void set_allocated_tex(::std::string* tex);
 
-  // uint32 col = 1;
+  // int32 col = 1;
   void clear_col();
   static const int kColFieldNumber = 1;
-  ::google::protobuf::uint32 col() const;
-  void set_col(::google::protobuf::uint32 value);
+  ::google::protobuf::int32 col() const;
+  void set_col(::google::protobuf::int32 value);
 
-  // uint32 row = 2;
+  // int32 row = 2;
   void clear_row();
   static const int kRowFieldNumber = 2;
-  ::google::protobuf::uint32 row() const;
-  void set_row(::google::protobuf::uint32 value);
+  ::google::protobuf::int32 row() const;
+  void set_row(::google::protobuf::int32 value);
 
   // bool flipH = 4;
   void clear_fliph();
@@ -1324,8 +1224,8 @@ class Tile : public ::google::protobuf::Message /* @@protoc_insertion_point(clas
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr tex_;
-  ::google::protobuf::uint32 col_;
-  ::google::protobuf::uint32 row_;
+  ::google::protobuf::int32 col_;
+  ::google::protobuf::int32 row_;
   bool fliph_;
   bool flipv_;
   ::google::protobuf::int32 rot_;
@@ -1369,7 +1269,7 @@ class Grid : public ::google::protobuf::Message /* @@protoc_insertion_point(clas
                &_Grid_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    9;
 
   void Swap(Grid* other);
   friend void swap(Grid& a, Grid& b) {
@@ -1493,7 +1393,7 @@ class ConnectionResponse : public ::google::protobuf::Message /* @@protoc_insert
                &_ConnectionResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    10;
 
   void Swap(ConnectionResponse* other);
   friend void swap(ConnectionResponse& a, ConnectionResponse& b) {
@@ -1545,18 +1445,6 @@ class ConnectionResponse : public ::google::protobuf::Message /* @@protoc_insert
 
   // accessors -------------------------------------------------------
 
-  // repeated .greyvarproto.PlayerAlreadyHere playerAlreadyHere = 5;
-  int playeralreadyhere_size() const;
-  void clear_playeralreadyhere();
-  static const int kPlayerAlreadyHereFieldNumber = 5;
-  ::greyvarproto::PlayerAlreadyHere* mutable_playeralreadyhere(int index);
-  ::google::protobuf::RepeatedPtrField< ::greyvarproto::PlayerAlreadyHere >*
-      mutable_playeralreadyhere();
-  const ::greyvarproto::PlayerAlreadyHere& playeralreadyhere(int index) const;
-  ::greyvarproto::PlayerAlreadyHere* add_playeralreadyhere();
-  const ::google::protobuf::RepeatedPtrField< ::greyvarproto::PlayerAlreadyHere >&
-      playeralreadyhere() const;
-
   // string serverVersion = 1;
   void clear_serverversion();
   static const int kServerVersionFieldNumber = 1;
@@ -1575,7 +1463,6 @@ class ConnectionResponse : public ::google::protobuf::Message /* @@protoc_insert
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField< ::greyvarproto::PlayerAlreadyHere > playeralreadyhere_;
   ::google::protobuf::internal::ArenaStringPtr serverversion_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_server_5fto_5fclient_5fmessages_2eproto::TableStruct;
@@ -1617,7 +1504,7 @@ class NoResponse : public ::google::protobuf::Message /* @@protoc_insertion_poin
                &_NoResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    11;
 
   void Swap(NoResponse* other);
   friend void swap(NoResponse& a, NoResponse& b) {
@@ -1687,34 +1574,58 @@ class NoResponse : public ::google::protobuf::Message /* @@protoc_insertion_poin
 #endif  // __GNUC__
 // ServerFrameResponse
 
-// repeated .greyvarproto.PlayerFrame playerFrames = 1;
-inline int ServerFrameResponse::playerframes_size() const {
-  return playerframes_.size();
+// .greyvarproto.MoveResponse moveResponse = 1;
+inline bool ServerFrameResponse::has_moveresponse() const {
+  return this != internal_default_instance() && moveresponse_ != NULL;
 }
-inline void ServerFrameResponse::clear_playerframes() {
-  playerframes_.Clear();
+inline void ServerFrameResponse::clear_moveresponse() {
+  if (GetArenaNoVirtual() == NULL && moveresponse_ != NULL) {
+    delete moveresponse_;
+  }
+  moveresponse_ = NULL;
 }
-inline ::greyvarproto::PlayerFrame* ServerFrameResponse::mutable_playerframes(int index) {
-  // @@protoc_insertion_point(field_mutable:greyvarproto.ServerFrameResponse.playerFrames)
-  return playerframes_.Mutable(index);
+inline const ::greyvarproto::MoveResponse& ServerFrameResponse::_internal_moveresponse() const {
+  return *moveresponse_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::greyvarproto::PlayerFrame >*
-ServerFrameResponse::mutable_playerframes() {
-  // @@protoc_insertion_point(field_mutable_list:greyvarproto.ServerFrameResponse.playerFrames)
-  return &playerframes_;
+inline const ::greyvarproto::MoveResponse& ServerFrameResponse::moveresponse() const {
+  const ::greyvarproto::MoveResponse* p = moveresponse_;
+  // @@protoc_insertion_point(field_get:greyvarproto.ServerFrameResponse.moveResponse)
+  return p != NULL ? *p : *reinterpret_cast<const ::greyvarproto::MoveResponse*>(
+      &::greyvarproto::_MoveResponse_default_instance_);
 }
-inline const ::greyvarproto::PlayerFrame& ServerFrameResponse::playerframes(int index) const {
-  // @@protoc_insertion_point(field_get:greyvarproto.ServerFrameResponse.playerFrames)
-  return playerframes_.Get(index);
+inline ::greyvarproto::MoveResponse* ServerFrameResponse::release_moveresponse() {
+  // @@protoc_insertion_point(field_release:greyvarproto.ServerFrameResponse.moveResponse)
+  
+  ::greyvarproto::MoveResponse* temp = moveresponse_;
+  moveresponse_ = NULL;
+  return temp;
 }
-inline ::greyvarproto::PlayerFrame* ServerFrameResponse::add_playerframes() {
-  // @@protoc_insertion_point(field_add:greyvarproto.ServerFrameResponse.playerFrames)
-  return playerframes_.Add();
+inline ::greyvarproto::MoveResponse* ServerFrameResponse::mutable_moveresponse() {
+  
+  if (moveresponse_ == NULL) {
+    auto* p = CreateMaybeMessage<::greyvarproto::MoveResponse>(GetArenaNoVirtual());
+    moveresponse_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:greyvarproto.ServerFrameResponse.moveResponse)
+  return moveresponse_;
 }
-inline const ::google::protobuf::RepeatedPtrField< ::greyvarproto::PlayerFrame >&
-ServerFrameResponse::playerframes() const {
-  // @@protoc_insertion_point(field_list:greyvarproto.ServerFrameResponse.playerFrames)
-  return playerframes_;
+inline void ServerFrameResponse::set_allocated_moveresponse(::greyvarproto::MoveResponse* moveresponse) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete moveresponse_;
+  }
+  if (moveresponse) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      moveresponse = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, moveresponse, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  moveresponse_ = moveresponse;
+  // @@protoc_insertion_point(field_set_allocated:greyvarproto.ServerFrameResponse.moveResponse)
 }
 
 // .greyvarproto.EntityMoved entityMoved = 2;
@@ -1825,7 +1736,115 @@ inline void ServerFrameResponse::set_allocated_entityspawn(::greyvarproto::Entit
   // @@protoc_insertion_point(field_set_allocated:greyvarproto.ServerFrameResponse.entitySpawn)
 }
 
-// .greyvarproto.PlayerJoined playerJoined = 4;
+// .greyvarproto.PlayerQuit playerQuit = 4;
+inline bool ServerFrameResponse::has_playerquit() const {
+  return this != internal_default_instance() && playerquit_ != NULL;
+}
+inline void ServerFrameResponse::clear_playerquit() {
+  if (GetArenaNoVirtual() == NULL && playerquit_ != NULL) {
+    delete playerquit_;
+  }
+  playerquit_ = NULL;
+}
+inline const ::greyvarproto::PlayerQuit& ServerFrameResponse::_internal_playerquit() const {
+  return *playerquit_;
+}
+inline const ::greyvarproto::PlayerQuit& ServerFrameResponse::playerquit() const {
+  const ::greyvarproto::PlayerQuit* p = playerquit_;
+  // @@protoc_insertion_point(field_get:greyvarproto.ServerFrameResponse.playerQuit)
+  return p != NULL ? *p : *reinterpret_cast<const ::greyvarproto::PlayerQuit*>(
+      &::greyvarproto::_PlayerQuit_default_instance_);
+}
+inline ::greyvarproto::PlayerQuit* ServerFrameResponse::release_playerquit() {
+  // @@protoc_insertion_point(field_release:greyvarproto.ServerFrameResponse.playerQuit)
+  
+  ::greyvarproto::PlayerQuit* temp = playerquit_;
+  playerquit_ = NULL;
+  return temp;
+}
+inline ::greyvarproto::PlayerQuit* ServerFrameResponse::mutable_playerquit() {
+  
+  if (playerquit_ == NULL) {
+    auto* p = CreateMaybeMessage<::greyvarproto::PlayerQuit>(GetArenaNoVirtual());
+    playerquit_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:greyvarproto.ServerFrameResponse.playerQuit)
+  return playerquit_;
+}
+inline void ServerFrameResponse::set_allocated_playerquit(::greyvarproto::PlayerQuit* playerquit) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete playerquit_;
+  }
+  if (playerquit) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      playerquit = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, playerquit, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  playerquit_ = playerquit;
+  // @@protoc_insertion_point(field_set_allocated:greyvarproto.ServerFrameResponse.playerQuit)
+}
+
+// .greyvarproto.PlayerAlreadyHere playerAlreadyHere = 5;
+inline bool ServerFrameResponse::has_playeralreadyhere() const {
+  return this != internal_default_instance() && playeralreadyhere_ != NULL;
+}
+inline void ServerFrameResponse::clear_playeralreadyhere() {
+  if (GetArenaNoVirtual() == NULL && playeralreadyhere_ != NULL) {
+    delete playeralreadyhere_;
+  }
+  playeralreadyhere_ = NULL;
+}
+inline const ::greyvarproto::PlayerAlreadyHere& ServerFrameResponse::_internal_playeralreadyhere() const {
+  return *playeralreadyhere_;
+}
+inline const ::greyvarproto::PlayerAlreadyHere& ServerFrameResponse::playeralreadyhere() const {
+  const ::greyvarproto::PlayerAlreadyHere* p = playeralreadyhere_;
+  // @@protoc_insertion_point(field_get:greyvarproto.ServerFrameResponse.playerAlreadyHere)
+  return p != NULL ? *p : *reinterpret_cast<const ::greyvarproto::PlayerAlreadyHere*>(
+      &::greyvarproto::_PlayerAlreadyHere_default_instance_);
+}
+inline ::greyvarproto::PlayerAlreadyHere* ServerFrameResponse::release_playeralreadyhere() {
+  // @@protoc_insertion_point(field_release:greyvarproto.ServerFrameResponse.playerAlreadyHere)
+  
+  ::greyvarproto::PlayerAlreadyHere* temp = playeralreadyhere_;
+  playeralreadyhere_ = NULL;
+  return temp;
+}
+inline ::greyvarproto::PlayerAlreadyHere* ServerFrameResponse::mutable_playeralreadyhere() {
+  
+  if (playeralreadyhere_ == NULL) {
+    auto* p = CreateMaybeMessage<::greyvarproto::PlayerAlreadyHere>(GetArenaNoVirtual());
+    playeralreadyhere_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:greyvarproto.ServerFrameResponse.playerAlreadyHere)
+  return playeralreadyhere_;
+}
+inline void ServerFrameResponse::set_allocated_playeralreadyhere(::greyvarproto::PlayerAlreadyHere* playeralreadyhere) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete playeralreadyhere_;
+  }
+  if (playeralreadyhere) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      playeralreadyhere = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, playeralreadyhere, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  playeralreadyhere_ = playeralreadyhere;
+  // @@protoc_insertion_point(field_set_allocated:greyvarproto.ServerFrameResponse.playerAlreadyHere)
+}
+
+// .greyvarproto.PlayerJoined playerJoined = 6;
 inline bool ServerFrameResponse::has_playerjoined() const {
   return this != internal_default_instance() && playerjoined_ != NULL;
 }
@@ -1879,7 +1898,61 @@ inline void ServerFrameResponse::set_allocated_playerjoined(::greyvarproto::Play
   // @@protoc_insertion_point(field_set_allocated:greyvarproto.ServerFrameResponse.playerJoined)
 }
 
-// .greyvarproto.Tile singleTileChange = 5;
+// .greyvarproto.PlayerYou playerYou = 7;
+inline bool ServerFrameResponse::has_playeryou() const {
+  return this != internal_default_instance() && playeryou_ != NULL;
+}
+inline void ServerFrameResponse::clear_playeryou() {
+  if (GetArenaNoVirtual() == NULL && playeryou_ != NULL) {
+    delete playeryou_;
+  }
+  playeryou_ = NULL;
+}
+inline const ::greyvarproto::PlayerYou& ServerFrameResponse::_internal_playeryou() const {
+  return *playeryou_;
+}
+inline const ::greyvarproto::PlayerYou& ServerFrameResponse::playeryou() const {
+  const ::greyvarproto::PlayerYou* p = playeryou_;
+  // @@protoc_insertion_point(field_get:greyvarproto.ServerFrameResponse.playerYou)
+  return p != NULL ? *p : *reinterpret_cast<const ::greyvarproto::PlayerYou*>(
+      &::greyvarproto::_PlayerYou_default_instance_);
+}
+inline ::greyvarproto::PlayerYou* ServerFrameResponse::release_playeryou() {
+  // @@protoc_insertion_point(field_release:greyvarproto.ServerFrameResponse.playerYou)
+  
+  ::greyvarproto::PlayerYou* temp = playeryou_;
+  playeryou_ = NULL;
+  return temp;
+}
+inline ::greyvarproto::PlayerYou* ServerFrameResponse::mutable_playeryou() {
+  
+  if (playeryou_ == NULL) {
+    auto* p = CreateMaybeMessage<::greyvarproto::PlayerYou>(GetArenaNoVirtual());
+    playeryou_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:greyvarproto.ServerFrameResponse.playerYou)
+  return playeryou_;
+}
+inline void ServerFrameResponse::set_allocated_playeryou(::greyvarproto::PlayerYou* playeryou) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete playeryou_;
+  }
+  if (playeryou) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      playeryou = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, playeryou, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  playeryou_ = playeryou;
+  // @@protoc_insertion_point(field_set_allocated:greyvarproto.ServerFrameResponse.playerYou)
+}
+
+// .greyvarproto.Tile singleTileChange = 8;
 inline bool ServerFrameResponse::has_singletilechange() const {
   return this != internal_default_instance() && singletilechange_ != NULL;
 }
@@ -1933,7 +2006,7 @@ inline void ServerFrameResponse::set_allocated_singletilechange(::greyvarproto::
   // @@protoc_insertion_point(field_set_allocated:greyvarproto.ServerFrameResponse.singleTileChange)
 }
 
-// .greyvarproto.Grid grid = 6;
+// .greyvarproto.Grid grid = 9;
 inline bool ServerFrameResponse::has_grid() const {
   return this != internal_default_instance() && grid_ != NULL;
 }
@@ -1989,187 +2062,21 @@ inline void ServerFrameResponse::set_allocated_grid(::greyvarproto::Grid* grid) 
 
 // -------------------------------------------------------------------
 
-// PlayerFrame
+// MoveResponse
 
 // int32 playerId = 1;
-inline void PlayerFrame::clear_playerid() {
+inline void MoveResponse::clear_playerid() {
   playerid_ = 0;
 }
-inline ::google::protobuf::int32 PlayerFrame::playerid() const {
-  // @@protoc_insertion_point(field_get:greyvarproto.PlayerFrame.playerId)
+inline ::google::protobuf::int32 MoveResponse::playerid() const {
+  // @@protoc_insertion_point(field_get:greyvarproto.MoveResponse.playerId)
   return playerid_;
 }
-inline void PlayerFrame::set_playerid(::google::protobuf::int32 value) {
+inline void MoveResponse::set_playerid(::google::protobuf::int32 value) {
   
   playerid_ = value;
-  // @@protoc_insertion_point(field_set:greyvarproto.PlayerFrame.playerId)
+  // @@protoc_insertion_point(field_set:greyvarproto.MoveResponse.playerId)
 }
-
-// .greyvarproto.MoveResponse moveResponse = 2;
-inline bool PlayerFrame::has_moveresponse() const {
-  return this != internal_default_instance() && moveresponse_ != NULL;
-}
-inline void PlayerFrame::clear_moveresponse() {
-  if (GetArenaNoVirtual() == NULL && moveresponse_ != NULL) {
-    delete moveresponse_;
-  }
-  moveresponse_ = NULL;
-}
-inline const ::greyvarproto::MoveResponse& PlayerFrame::_internal_moveresponse() const {
-  return *moveresponse_;
-}
-inline const ::greyvarproto::MoveResponse& PlayerFrame::moveresponse() const {
-  const ::greyvarproto::MoveResponse* p = moveresponse_;
-  // @@protoc_insertion_point(field_get:greyvarproto.PlayerFrame.moveResponse)
-  return p != NULL ? *p : *reinterpret_cast<const ::greyvarproto::MoveResponse*>(
-      &::greyvarproto::_MoveResponse_default_instance_);
-}
-inline ::greyvarproto::MoveResponse* PlayerFrame::release_moveresponse() {
-  // @@protoc_insertion_point(field_release:greyvarproto.PlayerFrame.moveResponse)
-  
-  ::greyvarproto::MoveResponse* temp = moveresponse_;
-  moveresponse_ = NULL;
-  return temp;
-}
-inline ::greyvarproto::MoveResponse* PlayerFrame::mutable_moveresponse() {
-  
-  if (moveresponse_ == NULL) {
-    auto* p = CreateMaybeMessage<::greyvarproto::MoveResponse>(GetArenaNoVirtual());
-    moveresponse_ = p;
-  }
-  // @@protoc_insertion_point(field_mutable:greyvarproto.PlayerFrame.moveResponse)
-  return moveresponse_;
-}
-inline void PlayerFrame::set_allocated_moveresponse(::greyvarproto::MoveResponse* moveresponse) {
-  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
-  if (message_arena == NULL) {
-    delete moveresponse_;
-  }
-  if (moveresponse) {
-    ::google::protobuf::Arena* submessage_arena = NULL;
-    if (message_arena != submessage_arena) {
-      moveresponse = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, moveresponse, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  moveresponse_ = moveresponse;
-  // @@protoc_insertion_point(field_set_allocated:greyvarproto.PlayerFrame.moveResponse)
-}
-
-// .greyvarproto.PlayerQuit playerQuit = 3;
-inline bool PlayerFrame::has_playerquit() const {
-  return this != internal_default_instance() && playerquit_ != NULL;
-}
-inline void PlayerFrame::clear_playerquit() {
-  if (GetArenaNoVirtual() == NULL && playerquit_ != NULL) {
-    delete playerquit_;
-  }
-  playerquit_ = NULL;
-}
-inline const ::greyvarproto::PlayerQuit& PlayerFrame::_internal_playerquit() const {
-  return *playerquit_;
-}
-inline const ::greyvarproto::PlayerQuit& PlayerFrame::playerquit() const {
-  const ::greyvarproto::PlayerQuit* p = playerquit_;
-  // @@protoc_insertion_point(field_get:greyvarproto.PlayerFrame.playerQuit)
-  return p != NULL ? *p : *reinterpret_cast<const ::greyvarproto::PlayerQuit*>(
-      &::greyvarproto::_PlayerQuit_default_instance_);
-}
-inline ::greyvarproto::PlayerQuit* PlayerFrame::release_playerquit() {
-  // @@protoc_insertion_point(field_release:greyvarproto.PlayerFrame.playerQuit)
-  
-  ::greyvarproto::PlayerQuit* temp = playerquit_;
-  playerquit_ = NULL;
-  return temp;
-}
-inline ::greyvarproto::PlayerQuit* PlayerFrame::mutable_playerquit() {
-  
-  if (playerquit_ == NULL) {
-    auto* p = CreateMaybeMessage<::greyvarproto::PlayerQuit>(GetArenaNoVirtual());
-    playerquit_ = p;
-  }
-  // @@protoc_insertion_point(field_mutable:greyvarproto.PlayerFrame.playerQuit)
-  return playerquit_;
-}
-inline void PlayerFrame::set_allocated_playerquit(::greyvarproto::PlayerQuit* playerquit) {
-  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
-  if (message_arena == NULL) {
-    delete playerquit_;
-  }
-  if (playerquit) {
-    ::google::protobuf::Arena* submessage_arena = NULL;
-    if (message_arena != submessage_arena) {
-      playerquit = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, playerquit, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  playerquit_ = playerquit;
-  // @@protoc_insertion_point(field_set_allocated:greyvarproto.PlayerFrame.playerQuit)
-}
-
-// .greyvarproto.PlayerYou playerYou = 4;
-inline bool PlayerFrame::has_playeryou() const {
-  return this != internal_default_instance() && playeryou_ != NULL;
-}
-inline void PlayerFrame::clear_playeryou() {
-  if (GetArenaNoVirtual() == NULL && playeryou_ != NULL) {
-    delete playeryou_;
-  }
-  playeryou_ = NULL;
-}
-inline const ::greyvarproto::PlayerYou& PlayerFrame::_internal_playeryou() const {
-  return *playeryou_;
-}
-inline const ::greyvarproto::PlayerYou& PlayerFrame::playeryou() const {
-  const ::greyvarproto::PlayerYou* p = playeryou_;
-  // @@protoc_insertion_point(field_get:greyvarproto.PlayerFrame.playerYou)
-  return p != NULL ? *p : *reinterpret_cast<const ::greyvarproto::PlayerYou*>(
-      &::greyvarproto::_PlayerYou_default_instance_);
-}
-inline ::greyvarproto::PlayerYou* PlayerFrame::release_playeryou() {
-  // @@protoc_insertion_point(field_release:greyvarproto.PlayerFrame.playerYou)
-  
-  ::greyvarproto::PlayerYou* temp = playeryou_;
-  playeryou_ = NULL;
-  return temp;
-}
-inline ::greyvarproto::PlayerYou* PlayerFrame::mutable_playeryou() {
-  
-  if (playeryou_ == NULL) {
-    auto* p = CreateMaybeMessage<::greyvarproto::PlayerYou>(GetArenaNoVirtual());
-    playeryou_ = p;
-  }
-  // @@protoc_insertion_point(field_mutable:greyvarproto.PlayerFrame.playerYou)
-  return playeryou_;
-}
-inline void PlayerFrame::set_allocated_playeryou(::greyvarproto::PlayerYou* playeryou) {
-  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
-  if (message_arena == NULL) {
-    delete playeryou_;
-  }
-  if (playeryou) {
-    ::google::protobuf::Arena* submessage_arena = NULL;
-    if (message_arena != submessage_arena) {
-      playeryou = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, playeryou, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  playeryou_ = playeryou;
-  // @@protoc_insertion_point(field_set_allocated:greyvarproto.PlayerFrame.playerYou)
-}
-
-// -------------------------------------------------------------------
-
-// MoveResponse
 
 // -------------------------------------------------------------------
 
@@ -2431,29 +2338,29 @@ inline void PlayerYou::set_playerid(::google::protobuf::int32 value) {
 
 // Tile
 
-// uint32 col = 1;
+// int32 col = 1;
 inline void Tile::clear_col() {
-  col_ = 0u;
+  col_ = 0;
 }
-inline ::google::protobuf::uint32 Tile::col() const {
+inline ::google::protobuf::int32 Tile::col() const {
   // @@protoc_insertion_point(field_get:greyvarproto.Tile.col)
   return col_;
 }
-inline void Tile::set_col(::google::protobuf::uint32 value) {
+inline void Tile::set_col(::google::protobuf::int32 value) {
   
   col_ = value;
   // @@protoc_insertion_point(field_set:greyvarproto.Tile.col)
 }
 
-// uint32 row = 2;
+// int32 row = 2;
 inline void Tile::clear_row() {
-  row_ = 0u;
+  row_ = 0;
 }
-inline ::google::protobuf::uint32 Tile::row() const {
+inline ::google::protobuf::int32 Tile::row() const {
   // @@protoc_insertion_point(field_get:greyvarproto.Tile.row)
   return row_;
 }
-inline void Tile::set_row(::google::protobuf::uint32 value) {
+inline void Tile::set_row(::google::protobuf::int32 value) {
   
   row_ = value;
   // @@protoc_insertion_point(field_set:greyvarproto.Tile.row)
@@ -2698,36 +2605,6 @@ inline void ConnectionResponse::set_allocated_serverversion(::std::string* serve
   // @@protoc_insertion_point(field_set_allocated:greyvarproto.ConnectionResponse.serverVersion)
 }
 
-// repeated .greyvarproto.PlayerAlreadyHere playerAlreadyHere = 5;
-inline int ConnectionResponse::playeralreadyhere_size() const {
-  return playeralreadyhere_.size();
-}
-inline void ConnectionResponse::clear_playeralreadyhere() {
-  playeralreadyhere_.Clear();
-}
-inline ::greyvarproto::PlayerAlreadyHere* ConnectionResponse::mutable_playeralreadyhere(int index) {
-  // @@protoc_insertion_point(field_mutable:greyvarproto.ConnectionResponse.playerAlreadyHere)
-  return playeralreadyhere_.Mutable(index);
-}
-inline ::google::protobuf::RepeatedPtrField< ::greyvarproto::PlayerAlreadyHere >*
-ConnectionResponse::mutable_playeralreadyhere() {
-  // @@protoc_insertion_point(field_mutable_list:greyvarproto.ConnectionResponse.playerAlreadyHere)
-  return &playeralreadyhere_;
-}
-inline const ::greyvarproto::PlayerAlreadyHere& ConnectionResponse::playeralreadyhere(int index) const {
-  // @@protoc_insertion_point(field_get:greyvarproto.ConnectionResponse.playerAlreadyHere)
-  return playeralreadyhere_.Get(index);
-}
-inline ::greyvarproto::PlayerAlreadyHere* ConnectionResponse::add_playeralreadyhere() {
-  // @@protoc_insertion_point(field_add:greyvarproto.ConnectionResponse.playerAlreadyHere)
-  return playeralreadyhere_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::greyvarproto::PlayerAlreadyHere >&
-ConnectionResponse::playeralreadyhere() const {
-  // @@protoc_insertion_point(field_list:greyvarproto.ConnectionResponse.playerAlreadyHere)
-  return playeralreadyhere_;
-}
-
 // -------------------------------------------------------------------
 
 // NoResponse
@@ -2735,8 +2612,6 @@ ConnectionResponse::playeralreadyhere() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

@@ -29,12 +29,17 @@ void processInitialCvars() {
     }                                                                           
 }  
 
-void boleasQuitEngine() {
-	GameState::get().clear();
-}
-
 void quitLibraries() {
 	quitSound();
+}
+
+void boleasQuitEngine() {
+	GameState::get().clear();
+
+	Gui::get().quit();
+
+    quitLibraries();                                                               
+    SDL_Quit();
 }
 
 void boleasStartEngine(int argc, char* argv[]) {
@@ -58,8 +63,6 @@ void boleasStartEngine(int argc, char* argv[]) {
     Renderer::get().destroyWindow();                                               
                                                                                    
     boleasQuitEngine();
-    quitLibraries();                                                               
-    SDL_Quit();
 }
 
 

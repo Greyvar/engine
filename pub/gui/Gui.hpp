@@ -38,6 +38,8 @@ class Gui {
 
 		Scene scene = MENU;
 
+		void quit();
+
 		void toggleConsole();
 
 		void refreshPlayers();

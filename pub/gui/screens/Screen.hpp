@@ -13,6 +13,10 @@ class Screen {
 		void add(GuiComponent* comp, LayoutConstraints* lc);
 
 	public:
+		~Screen() {
+			std::cout << "Screen remove" << std::endl;
+		}
+
 		vector<GuiComponent*> components{};
 		string getPreviousScreenName();
 		void onMouseMoved(int x, int y);

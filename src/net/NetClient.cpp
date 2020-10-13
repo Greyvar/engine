@@ -38,3 +38,12 @@ void NetClient::sendRecvFrame() {
 		serverFrameBuffer.push(res);
 	}
 }
+
+void NetClient::processServerFrames() {
+	while (this->hasFrames()) {
+		auto frame = this->serverFrameBuffer.front();
+		this->serverFrameBuffer.pop();
+
+		processServerFrame(frame);
+	}
+}
