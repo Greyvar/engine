@@ -35,3 +35,11 @@ void Gui::onMouseMoved(const int x, const int y) const {
 	}
 }
 
+void Gui::quit() {
+	std::cout << "Quitting screens" << std::endl;
+
+	for (auto screen : this->screens) {
+		delete(screen.second);
+	}
+}
+

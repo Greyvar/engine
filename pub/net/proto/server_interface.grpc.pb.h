@@ -62,8 +62,11 @@ class ServerInterface final {
      public:
       virtual ~experimental_async_interface() {}
       virtual void Connect(::grpc::ClientContext* context, const ::greyvarproto::ConnectionRequest* request, ::greyvarproto::ConnectionResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void Connect(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::greyvarproto::ConnectionResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void PlayerSetup(::grpc::ClientContext* context, const ::greyvarproto::NewPlayer* request, ::greyvarproto::NoResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void PlayerSetup(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::greyvarproto::NoResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void GetServerFrame(::grpc::ClientContext* context, const ::greyvarproto::ClientRequests* request, ::greyvarproto::ServerFrameResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void GetServerFrame(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::greyvarproto::ServerFrameResponse* response, std::function<void(::grpc::Status)>) = 0;
     };
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
@@ -102,8 +105,11 @@ class ServerInterface final {
       public StubInterface::experimental_async_interface {
      public:
       void Connect(::grpc::ClientContext* context, const ::greyvarproto::ConnectionRequest* request, ::greyvarproto::ConnectionResponse* response, std::function<void(::grpc::Status)>) override;
+      void Connect(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::greyvarproto::ConnectionResponse* response, std::function<void(::grpc::Status)>) override;
       void PlayerSetup(::grpc::ClientContext* context, const ::greyvarproto::NewPlayer* request, ::greyvarproto::NoResponse* response, std::function<void(::grpc::Status)>) override;
+      void PlayerSetup(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::greyvarproto::NoResponse* response, std::function<void(::grpc::Status)>) override;
       void GetServerFrame(::grpc::ClientContext* context, const ::greyvarproto::ClientRequests* request, ::greyvarproto::ServerFrameResponse* response, std::function<void(::grpc::Status)>) override;
+      void GetServerFrame(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::greyvarproto::ServerFrameResponse* response, std::function<void(::grpc::Status)>) override;
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }

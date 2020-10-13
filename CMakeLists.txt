@@ -47,7 +47,7 @@ elseif(UNIX)
 	add_definitions(-DPLATFORM_LINUX)
 
 	if (CMAKE_BUILD_TYPE MATCHES Debug) 
-		set(PLATFORM_CXX_FLAGS "-fsanitize=address ")
+		#set(PLATFORM_CXX_FLAGS "-s -fsanitize=address ")
 	else()
 		set(PLATFORM_CXX_FLAGS "-s ")
 	endif()
