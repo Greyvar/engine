@@ -36,7 +36,6 @@ void renderHudPlayer(LocalPlayer* lp, int x, int y, int fontSize, bool firstPlay
 
 	SDL_Texture* texInputDeviceIcon;
 
-	int smallTextOffset = 20;
 
 	int statusTextType = 0;
 	
@@ -73,8 +72,10 @@ void renderHudPlayer(LocalPlayer* lp, int x, int y, int fontSize, bool firstPlay
 			break;
 	}
 	
-	renderTextShadow(L"username", x + 40, y, fontSize);
-	renderTextShadow(L"status", x + 40 , y + smallTextOffset, fontSize / 2);
+	int smallTextOffset = 25;
+
+	renderTextShadow(L"username", x + 40, y - fontSize, fontSize);
+	renderTextShadow(L"status", x + 40 , (y - fontSize) + smallTextOffset, fontSize / 2);
 	
 	SDL_RenderCopy(Renderer::get().sdlRen, texInputDeviceIcon, nullptr, &inputDeviceIconPos);
 }

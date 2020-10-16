@@ -34,6 +34,7 @@ ActionInputType getActionInputType(ActionInput ai) {
 
 bool canWalk() {
 	if (!GameState::get().isFirstLocalPlayerConnected()) {
+		cout << "no local player" << endl;
 		return false;
 	}
 

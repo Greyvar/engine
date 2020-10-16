@@ -11,6 +11,7 @@
 #include <iostream>
 #include <SDL2/SDL.h>
 
+#include "net/NetClient.hpp"
 
 using namespace std;
 
@@ -47,19 +48,49 @@ void executeSinglePlayerInput(PlayerInput* pi) {
 				Gui::get().currentScreen->onClick(pi->pointerX, pi->pointerY);
 				break;
 			case WALK_UP:
-//				NetworkManager::get().sendMovr(0, -1, pi->localPlayer->username);
+				{
+					auto mr = new MoveRequest();
+					mr->set_playerid(1); //pi->localPlayer->playerId;
+					mr->set_x(0);
+					mr->set_y(-1);
+
+					NetClient::get().getNextFrameToSend()->set_allocated_moverequest(mr);
+				}
 				break;
 			case WALK_DOWN:
-//				NetworkManager::get().sendMovr(0, 1, pi->localPlayer->username);
+				{
+					auto mr = new MoveRequest();
+					mr->set_playerid(1); //pi->localPlayer->playerId;
+					mr->set_x(0);
+					mr->set_y(1);
+
+					NetClient::get().getNextFrameToSend()->set_allocated_moverequest(mr);
+				}
+
+				//NetworkManager::get().sendMovr(0, 1, pi->localPlayer->username);
 				break;
 			case WALK_LEFT:
-//				NetworkManager::get().sendMovr(-1, 0, pi->localPlayer->username);
+				{
+					auto mr = new MoveRequest();
+					mr->set_playerid(1); //pi->localPlayer->playerId;
+					mr->set_x(-1);
+					mr->set_y(0);
+
+					NetClient::get().getNextFrameToSend()->set_allocated_moverequest(mr);
+				}
 				break;
 			case WALK_RIGHT:
-//				NetworkManager::get().sendMovr(1, 0, pi->localPlayer->username);
+				{
+					auto mr = new MoveRequest();
+					mr->set_playerid(1); //pi->localPlayer->playerId;
+					mr->set_x(1);
+					mr->set_y(0);
+
+					NetClient::get().getNextFrameToSend()->set_allocated_moverequest(mr);
+				}
 				break;
 			case JOIN_GAME:
-//				NetworkManager::get().sendHelo(pi->localPlayer);
+				//NetworkManager::get().sendHelo(pi->localPlayer);
 				break;
 			case QUIT:
 				SDL_Event e;

@@ -54,7 +54,7 @@ class GameState {
 		}
 
 		bool isFirstLocalPlayerConnected() {
-			return this->getFirstLocalPlayer()->remote != nullptr;
+			return this->getFirstLocalPlayer()->remote == nullptr;
 		}
 
 		void onNewLocalPlayer(LocalPlayer* lp);

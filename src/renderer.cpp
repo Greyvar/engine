@@ -104,8 +104,7 @@ void renderConsole() {
 
 void renderUiMessages() {
 	for (auto it : Gui::get().messages) {
-//		renderTextShadow(to_string(it.second), 50, (Renderer::get().window_h - 100) - (index * 50), 100, 100, 24, LEFT_MIDDLE, colorText);
-//		index++;
+//		renderTextShadow(L"FIXME it.second", 50, (Renderer::get().window_h - 100) - (1 * 50), 24);
 	}
 }
 

@@ -9,6 +9,7 @@
 using greyvarproto::ServerInterface;
 using greyvarproto::ConnectionRequest;
 using greyvarproto::NewPlayer;
+using greyvarproto::MoveRequest; 
 using greyvarproto::NoResponse;
 using greyvarproto::ConnectionResponse;
 using greyvarproto::ClientRequests;

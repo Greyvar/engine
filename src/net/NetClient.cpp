@@ -17,7 +17,7 @@ void NetClient::connect() {
 void NetClient::playerSetup(LocalPlayer* lp) {
 	NewPlayer np; 
 	NoResponse ignoreme;
-//	np.username("untitled.player");
+	np.set_username("untitled.player");
 
 	ClientContext ctx; 
 

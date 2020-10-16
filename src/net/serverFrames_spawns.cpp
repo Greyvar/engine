@@ -19,5 +19,5 @@ void processServerFrameEntitySpawns(greyvarproto::EntitySpawn spawn) {
 
 	GameState::get().world->entityGrid->add(spawn.entityid(), ent);
 
-	cout << "ent spawn " << spawn.texture() << endl;
+	cout << "ent spawn " << spawn.texture() << ", id: " << spawn.entityid() << endl;
 }
